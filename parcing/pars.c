@@ -24,19 +24,14 @@ int	verif_arg(char **str)
 	return (0);
 }
 
-int	ft_isdigit(char c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
 int	verif_int(char **av, int ac, t_tab *tab)
 {
 	int			i;
 	long int	nb;
 
 	tab->tab = malloc(sizeof(int) * ac);
+	if (!tab->tab)
+		return (1);
 	i = 0;
 	nb = 0;
 	while (av[i])
@@ -59,49 +54,57 @@ int	check_doubles(t_tab *tab, int ac)
 
 	i = 1;
 	tmp = 0;
-	printf("%d", ac);
-	ac -= 1;
-	while (ac > 0)
+	printf("%d\n", ac - 1);
+	while (i < ac)
 	{
 		tmp = tab->tab[i];
-		printf("%d\n", tab->tab[i]);
+		printf(">%d\n", tab->tab[i]);
 		j = i + 1;
-		while (tab->tab[j])
+		while (j < ac)
 		{
 			if (tab->tab[j] == tmp)
 				return (1);
 			j++;
 		}
 		i++;
-		ac--;
 	}
 	return (0);
 }
 
+int	verif_tri(t_tab *tab, int ac)
+{
+	int	i;
+
+	i = 1;
+	if (ac == 2)
+		return (0);
+	while (i < ac - 1)
+	{
+		if (tab->tab[i] > tab->tab[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	ft_parcing(int ac, char **av)
 {
-	t_tab		tab;
+	t_tab	tab;
 
 	if (ac < 2)
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (1);
-	}
+		return (ft_putstr_fd("Error 1\n", 2), 1);
 	if (verif_arg(av))
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (1);
-	}
+		return (ft_putstr_fd("Error 2\n", 2), 1);
 	if (verif_int(av, ac, &tab))
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (1);
-	}
+		return (ft_putstr_fd("Error 3\n", 2), free(tab.tab), 1);
 	if (check_doubles(&tab, ac))
+		return (ft_putstr_fd("Error 4\n", 2), free(tab.tab), 1);
+	if (verif_tri(&tab, ac) == 1)
+		return (ft_putstr_fd("Error 5\n", 2), free(tab.tab), 1);
+	if (ac == 2)
 	{
-		ft_putstr_fd("Error\n", 2);
-		return (1);
+		if (verif_2args(av))
+			return (ft_putstr_fd("Error 6\n", 2), free(tab.tab), 1);
 	}
-	//free(tab.tab);
-	return (0);
+	return (free(tab.tab), 0);
 }

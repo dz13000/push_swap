@@ -19,9 +19,9 @@ void	ft_putstr_fd(char *s, int fd)
 
 long int	ft_atoi_long(char *str)
 {
-	long int i;
-	long int sign;
-	long int res;
+	long int	i;
+	long int	sign;
+	long int	res;
 
 	i = 0;
 	sign = 1;
@@ -40,4 +40,23 @@ long int	ft_atoi_long(char *str)
 		i++;
 	}
 	return (res * sign);
+}
+
+int	count_tab(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+		i++;
+	if (i < 2)
+		return (1);
+	return (0);
+}
+
+int	ft_isdigit(char c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }

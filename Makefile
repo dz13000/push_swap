@@ -2,7 +2,10 @@ NAME = push_swap
 
 SRCS = 	main.c \
 		parcing/pars.c \
-		parcing/utils.c
+		parcing/utils.c \
+		parcing/utils2.c \
+		parcing/utils3.c \
+		parcing/ft_split.c
 
 DEF_COLOR = \033[0;39m
 GRAY = \033[0;90m
@@ -46,4 +49,4 @@ fclean: clean
 re: fclean all
 	@echo "$(GREEN)Cleaned and rebuilt everything for push_swap!$(DEF_COLOR)"
 
-.PHONY: all clean fclean re minilibx
+.PHONY: all clean fclean re 
