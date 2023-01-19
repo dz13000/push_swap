@@ -37,7 +37,7 @@ int	check_doubles2(int *tab, int ac)
 
 int	verif_tri2(int *tab, int ac)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < ac - 1)
@@ -71,26 +71,27 @@ int	verif_int2(char **av)
 		nb = 0;
 		i++;
 	}
-	if(check_doubles2(tab, count) || verif_tri2(tab, count))
-		return(free(tab), 1);
+	if (check_doubles2(tab, count) || verif_tri2(tab, count))
+		return (free(tab), 1);
 	//free(tab);
 	return (free(tab), 0);
 }
 
-int	verif_2args(char **av)
+int	verif_2args(char **av, t_tab *tab2)
 {
-	char	**tab;
+	char **tab;
 
 	// int		i;
 	// i = 0;
 	tab = ft_split(av[1], ' ');
 	if (!tab)
 		return (1);
-	if (count_tab(tab))
+	if (count_tab(tab, &*tab2))
 		return (ft_free2(tab), 1);
 	if (verif_arg(av))
 		return (ft_free2(tab), 1);
 	if (verif_int2(tab))
 		return (ft_free2(tab), 1);
-	return (0);
+	// printf("tema c passe\n");
+	return (ft_free2(tab), 0);
 }

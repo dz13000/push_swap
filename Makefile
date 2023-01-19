@@ -5,7 +5,8 @@ SRCS = 	main.c \
 		parcing/utils.c \
 		parcing/utils2.c \
 		parcing/utils3.c \
-		parcing/ft_split.c
+		parcing/ft_split.c \
+		def_pile_a.c
 
 DEF_COLOR = \033[0;39m
 GRAY = \033[0;90m

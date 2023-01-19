@@ -4,8 +4,8 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-//Parcing
 
+//Parcing
 typedef struct s_tab
 {
 	int		*tab;
@@ -21,13 +21,23 @@ int			verif_int(char **av, int ac, t_tab *tab);
 long int	ft_atoi_long(char *str);
 int			check_doubles(t_tab *tab, int ac);
 int			verif_tri(t_tab *tab, int ac);
-int			verif_2args(char **av);
+int			verif_2args(char **av, t_tab *tab2);
 char		**ft_split(char const *s, char c);
 int			verif_int2(char **av);
 int			count_tab2(char **tab);
-int			count_tab(char **tab);
+int			count_tab(char **tab, t_tab *tab2);
 int			check_doubles2(int *tab, int ac);
 int			verif_tri2(int *tab, int ac);
 void		ft_free2(char **tab);
+
+//Pile a
+
+typedef struct s_pile
+{
+	int		nb;
+	struct s_pile	*next;
+}			t_pile;
+
+t_pile		*ft_def_pile_a(int ac, char **av);
 
 #endif

@@ -100,10 +100,13 @@ int	ft_parcing(int ac, char **av)
 	if (check_doubles(&tab, ac))
 		return (ft_putstr_fd("Error 4\n", 2), free(tab.tab), 1);
 	if (verif_tri(&tab, ac) == 1)
-		return (ft_putstr_fd("Error 5\n", 2), free(tab.tab), 1);
+	{
+		free(tab.tab);
+		exit(1);
+	}
 	if (ac == 2)
 	{
-		if (verif_2args(av))
+		if (verif_2args(av, &tab))
 			return (ft_putstr_fd("Error 6\n", 2), free(tab.tab), 1);
 	}
 	return (free(tab.tab), 0);

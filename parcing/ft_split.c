@@ -34,7 +34,7 @@ char	**ft_free(char **tab, int j)
 {
 	while (j)
 		free(tab[j--]);
-	free (tab);
+	free(tab);
 	return (NULL);
 }
 
@@ -67,9 +67,9 @@ char	**ft_decoupe(char **tab, char *str, int k, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	int		k;
-	char	**tab;
-	char	*str;
+	int k;
+	char **tab;
+	char *str;
 
 	k = 0;
 	if (s == NULL)
