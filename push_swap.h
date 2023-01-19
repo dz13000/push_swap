@@ -39,5 +39,8 @@ typedef struct s_pile
 }			t_pile;
 
 t_pile		*ft_def_pile_a(int ac, char **av);
+void    swap_a(t_pile *pile_a);
+void    ft_lstadd_front(t_pile **pile_a, t_pile *new);
+t_pile *ft_lst_new(int nb);
 
 #endif
