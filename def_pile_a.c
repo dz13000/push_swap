@@ -52,6 +52,28 @@ int	*def_tab(char **av, int *size)
 	return (tab2);
 }
 
+t_pile *ft_lst_new(int nb)
+{
+    t_pile *new;
+	new = malloc(sizeof(t_pile));
+	new->nb = nb;
+	new->next = NULL;
+	return (new);
+}
+
+void	ft_lstadd_back(t_pile *lst, t_pile *new)
+{
+	t_pile *tmp;
+
+	tmp = lst;
+	while(tmp->next != NULL)
+	{
+		tmp = tmp->next;
+	}
+	tmp->next = new;
+	tmp->next->next = NULL;
+}
+
 t_pile	*ft_def_pile_a(int ac, char **av)
 {
     t_pile  *res;
@@ -61,12 +83,26 @@ t_pile	*ft_def_pile_a(int ac, char **av)
 		int *tab = def_tab(av, & size);
 		int j;
         j = 0;
+		res = ft_lst_new(tab[j]);
+		// printf("La liste : %d\n", res->nb);
+		j++;
 		while (j < size)
-			printf("-->%d", tab[j++]);
+		{
+			t_pile *new;
+			new = ft_lst_new(tab[j]);
+			ft_lstadd_back(res, new);
+			// free(new);
+			j++;
+		}
+		// free(new);
         free(tab);
 	}
-	res = malloc(sizeof(t_pile));
-	res->nb = 42;
-	res->next = NULL;
+	t_pile *tmp;
+	tmp = res;
+	while(tmp)
+	{
+		printf("La liste : %d\n", tmp->nb);
+		tmp = tmp->next;
+	}
 	return (res);
 }
