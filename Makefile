@@ -6,8 +6,10 @@ SRCS = 	main.c \
 		parcing/utils2.c \
 		parcing/utils3.c \
 		parcing/ft_split.c \
-		def_pile_a.c \
-		move.c \
+		init_pile_a/def_pile_a.c \
+		init_pile_a/utils.c \
+		move/move.c \
+		move/move2.c 
 
 DEF_COLOR = \033[0;39m
 GRAY = \033[0;90m

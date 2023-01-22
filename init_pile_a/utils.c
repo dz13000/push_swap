@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	ft_atoi(char *str)
 {
@@ -47,16 +47,16 @@ int	*def_tab(char **av, int *size)
 		j++;
 		i++;
 	}
-    ft_free2(tab);
-    *size = i;
+	ft_free2(tab);
+	*size = i;
 	return (tab2);
 }
 
 int	*def_tab2(char **av, int *size)
 {
-	int		*tab2;
-	int		j;
-	int		i;
+	int	*tab2;
+	int	j;
+	int	i;
 
 	i = 1;
 	// tab = ft_split(av[1], ' ');
@@ -73,14 +73,15 @@ int	*def_tab2(char **av, int *size)
 		j++;
 		i++;
 	}
-    // ft_free2(tab);
-    *size = i;
+	// ft_free2(tab);
+	*size = i;
 	return (tab2);
 }
 
-t_pile *ft_lst_new(int nb)
+t_pile	*ft_lst_new(int nb)
 {
-    t_pile *new;
+	t_pile	*new;
+
 	new = malloc(sizeof(t_pile));
 	new->nb = nb;
 	new->next = NULL;
@@ -92,60 +93,10 @@ void	ft_lstadd_back(t_pile *lst, t_pile *new)
 	t_pile *tmp;
 
 	tmp = lst;
-	while(tmp->next != NULL)
+	while (tmp->next != NULL)
 	{
 		tmp = tmp->next;
 	}
 	tmp->next = new;
 	tmp->next->next = NULL;
-}
-
-t_pile	*ft_def_pile_a(int ac, char **av)
-{
-    t_pile  *res = NULL;
-	if (ac == 2)
-	{
-        int size = 0;
-		int *tab = def_tab(av, & size);
-		int j;
-        j = 0;
-		res = ft_lst_new(tab[j]);
-		j++;
-		while (j < size)
-		{
-			t_pile *new;
-			new = ft_lst_new(tab[j]);
-			ft_lstadd_back(res, new);
-			j++;
-		}
-        free(tab);
-	}
-	else
-	{
-		int *tab;
-		int size;
-
-		size = 0;
-		tab = def_tab2(av, &size);
-		int j;
-        j = 0;
-		res = ft_lst_new(tab[j]);
-		j++;
-		while (j < size - 1)
-		{
-			t_pile *new;
-			new = ft_lst_new(tab[j]);
-			ft_lstadd_back(res, new);
-			j++;
-		}
-        free(tab);
-	}
-	t_pile *tmp;
-	tmp = res;
-	while(tmp)
-	{
-		printf("La liste : %d\n", tmp->nb);
-		tmp = tmp->next;
-	}
-	return (res);
 }
