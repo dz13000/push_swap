@@ -41,7 +41,6 @@ void	reverse_rotate_a(t_pile **pile_a)
 		tmp = tmp->next;
 	}
 	tmp2 = tmp->next;
-	printf("%d\n", tmp2->nb);
 	tmp2->next = tmp3;
 	tmp3 = tmp2;
 	tmp->next = NULL;

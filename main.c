@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	free_pile_a(t_pile **pile)
+void	free_pile(t_pile **pile)
 {
 	t_pile	*tmp;
 	t_pile	*tmp2;
@@ -14,6 +14,21 @@ void	free_pile_a(t_pile **pile)
 	}
 }
 
+int	ft_lst_size(t_pile **pile)
+{
+	t_pile *size;
+	int i;
+
+	size = (*pile);
+	i = 0;
+	while (size)
+	{
+		size = size->next;
+		i++;
+	}
+	return (i);
+}
+
 int	main(int ac, char **av)
 {
 	if (ft_parcing(ac, av))
@@ -25,6 +40,10 @@ int	main(int ac, char **av)
 	pile_a = ft_def_pile_a(ac, av);
 
 	t_pile *ok;
+	push_b(&pile_a, &pile_b);
+	// push_b(&pile_a, &pile_b);
+	// push_a(&pile_a, &pile_b);
+	// push_a(&pile_a, &pile_b);
 	ok = pile_a;
 	while (ok)
 	{
@@ -40,18 +59,8 @@ int	main(int ac, char **av)
 		ok2 = ok2->next;
 	}
 
-	t_pile *size;
-	int i;
-
-	size = pile_a;
-	i = 0;
-	while (size)
-	{
-		size = size->next;
-		i++;
-	}
-
-	printf("La taille de la pile A est  : %d\n", i);
-	free_pile_a(&pile_a);
+	printf("La taille de la pile A est  : %d\n", ft_lst_size(&pile_a));
+	free_pile(&pile_a);
+	free_pile(&pile_b);
 	return (0);
 }

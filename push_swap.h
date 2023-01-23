@@ -39,13 +39,14 @@ typedef struct s_pile
 }					t_pile;
 
 t_pile				*ft_def_pile_a(int ac, char **av);
-void				free_pile_a(t_pile **pile);
+void				free_pile(t_pile **pile);
 void				ft_lstadd_front(t_pile **pile_a, t_pile *new);
 t_pile				*ft_lst_new(int nb);
 int					ft_atoi(char *str);
 int					*def_tab(char **av, int *size);
 int					*def_tab2(char **av, int *size);
 void				ft_lstadd_back(t_pile *lst, t_pile *new);
+int					ft_lst_size(t_pile **pile);
 
 // Moves
 void				swap(t_pile *pile_a, t_pile *pile_b, char c);
@@ -57,5 +58,15 @@ void				rr(t_pile **pile_a, t_pile **pile_b);
 void				reverse_rotate_a(t_pile **pile_a);
 void				reverse_rotate_b(t_pile **pile_b);
 void				rrr(t_pile **pile_a, t_pile **pile_b);
+
+// Algo
+
+typedef struct s_lis
+{
+	int				size;
+	int				*tab;
+}					t_lis;
+
+void				lis(t_pile **pile_a, t_pile **pile_b);
 
 #endif
