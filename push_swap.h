@@ -36,6 +36,8 @@ typedef struct s_pile
 {
 	int				nb;
 	int				lis;
+	int *tab;
+	int count;
 	struct s_pile	*next;
 }					t_pile;
 
@@ -64,7 +66,6 @@ void				rrr(t_pile **pile_a, t_pile **pile_b);
 
 typedef struct s_lis
 {
-	int				size;
 	int				*tab;
 }					t_lis;
 

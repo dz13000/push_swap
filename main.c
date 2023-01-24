@@ -50,6 +50,7 @@ int	main(int ac, char **av)
 	{
 		printf("PILE A----->%d\n", ok->nb);
 		printf("LIS----->%d\n", ok->lis);
+		printf("Count----->%d\n", ok->count);
 		ok = ok->next;
 	}
 

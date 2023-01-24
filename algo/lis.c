@@ -75,42 +75,75 @@ void    value_lis(t_pile **pile_a, int lis_max)
         tmp = (*pile_a);
         while(tmp)
         {
-            if (i == tmp->lis && verif_lis(&tmp, i) == 1)
-                tmp->lis = 0;
+            if (i == tmp->lis && verif_lis(&tmp, i) == 0)
+                tmp->count = tmp->lis;
             tmp = tmp->next;
         }
         i++;
     }
 }
-void	lis(t_pile **pile_a, t_pile **pile_b)
+
+void    pre_tab(t_pile **pile_a, t_lis *lis, int lis_max)
 {
-    t_pile *tmp;
-    int lis_max;
-    int *tab;
     int i;
     int j;
-
+    t_pile *tmp;
+    
+    j = 1;
     i = 0;
+    while (i < lis_max)
+    {
+        tmp = (*pile_a);
+        while (tmp)
+        {
+            if (tmp->count == j)
+                lis->tab[i] = tmp->nb;
+            tmp = tmp->next;
+        }
+        j++;
+        i++;
+    }
+}
+
+void	lis(t_pile **pile_a, t_pile **pile_b)
+{
+    // t_pile *tmp;
+    t_lis lis;
+    int lis_max;
+    // int *tab;
+    // int i;
+    int j;
+
+    // i = 0;
     j = 0;
-    tmp = (*pile_a);
+    // tmp = (*pile_a);
     lis_max = 0;
     init_lis(&(*pile_a));
     def_lis(&(*pile_a));
     lis_max = max_lis(&(*pile_a));
     value_lis(*(&pile_a), lis_max);
-    tab = malloc(sizeof(int) * lis_max);
-    while (tmp)
-    {
-        if (tmp->lis != 0)
-        {
-            tab[i] = tmp->nb;
-            i++;
-        }
-        tmp = tmp->next;
-    }
+    lis.tab = malloc(sizeof(int) * lis_max);
+    pre_tab(&(*pile_a), &lis, lis_max);
+    // lis_lis.tab(&(*pile_a), lis_max, &lis.tab);
+    // j = 1;
+    // i = 0;
+    // while (i < lis_max)
+    // {
+    //     tmp = (*pile_a);
+    //     while (tmp)
+    //     {
+    //         if (tmp->count == j)
+    //             lis.tab[i] = tmp->nb;
+    //         tmp = tmp->next;
+    //     }
+    //     j++;
+    //     i++;
+    // }
+    
+    j = 0;
     while (j < lis_max)
     {
-        printf("Le TABLEAU %d\n", tab[j++]);
+        printf("Le lis.tabLEAU %d\n", lis.tab[j++]);
     }
     (void)(*pile_b);
 }
