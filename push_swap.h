@@ -35,6 +35,7 @@ void				ft_free2(char **tab);
 typedef struct s_pile
 {
 	int				nb;
+	int				lis;
 	struct s_pile	*next;
 }					t_pile;
 
@@ -59,7 +60,7 @@ void				reverse_rotate_a(t_pile **pile_a);
 void				reverse_rotate_b(t_pile **pile_b);
 void				rrr(t_pile **pile_a, t_pile **pile_b);
 
-// Algo
+// Algo 
 
 typedef struct s_lis
 {
@@ -68,5 +69,10 @@ typedef struct s_lis
 }					t_lis;
 
 void				lis(t_pile **pile_a, t_pile **pile_b);
+void    def_lis(t_pile **pile_a);
+void    init_lis(t_pile **pile_a);
+int     max_lis(t_pile **pile_a);
+int     verif_lis(t_pile **pile_a, int i);
+void    value_lis(t_pile **pile_a, int lis_max);
 
 #endif

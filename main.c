@@ -40,14 +40,16 @@ int	main(int ac, char **av)
 	pile_a = ft_def_pile_a(ac, av);
 
 	t_pile *ok;
-	push_b(&pile_a, &pile_b);
+	// push_b(&pile_a, &pile_b);
 	// push_b(&pile_a, &pile_b);
 	// push_a(&pile_a, &pile_b);
 	// push_a(&pile_a, &pile_b);
+	lis(&pile_a ,&pile_b);
 	ok = pile_a;
 	while (ok)
 	{
 		printf("PILE A----->%d\n", ok->nb);
+		printf("LIS----->%d\n", ok->lis);
 		ok = ok->next;
 	}
 
