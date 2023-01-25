@@ -46,7 +46,6 @@ int     max_lis(t_pile **pile_a)
         tmp = tmp->next;
     }
     return(max);
-    
 }
 
 int     verif_lis(t_pile **pile_a, int i)
