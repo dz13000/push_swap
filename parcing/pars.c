@@ -54,11 +54,11 @@ int	check_doubles(t_tab *tab, int ac)
 
 	i = 1;
 	tmp = 0;
-	printf("%d\n", ac - 1);
+	// printf("%d\n", ac - 1);
 	while (i < ac)
 	{
 		tmp = tab->tab[i];
-		printf(">%d\n", tab->tab[i]);
+		// printf(">%d\n", tab->tab[i]);
 		j = i + 1;
 		while (j < ac)
 		{

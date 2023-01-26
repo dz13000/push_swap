@@ -45,14 +45,14 @@ int	main(int ac, char **av)
 	// push_a(&pile_a, &pile_b);
 	// push_a(&pile_a, &pile_b);
 	lis(&pile_a ,&pile_b);
-	ok = pile_a;
-	while (ok)
-	{
-		printf("PILE A----->%d\n", ok->nb);
-		printf("LIS----->%d\n", ok->lis);
-		printf("Count----->%d\n", ok->count);
-		ok = ok->next;
-	}
+	// ok = pile_a;
+	// while (ok)
+	// {
+	// 	printf("PILE A----->%d\n", ok->nb);
+	// 	printf("LIS----->%d\n", ok->lis);
+	// 	printf("Count----->%d\n", ok->count);
+	// 	ok = ok->next;
+	// }
 
 	t_pile *ok2;
 	ok2 = pile_b;
@@ -60,6 +60,16 @@ int	main(int ac, char **av)
 	{
 		printf("PILE B----->%d\n", ok2->nb);
 		ok2 = ok2->next;
+	}
+
+	printf("La taille de la pile A est  : %d\n", ft_lst_size(&pile_a));
+	ok = pile_a;
+	while (ok)
+	{
+		printf("PILE A----->%d\n", ok->nb);
+		//printf("LIS----->%d\n", ok->lis);
+		// printf("Count----->%d\n", ok->count);
+		ok = ok->next;
 	}
 
 	printf("La taille de la pile A est  : %d\n", ft_lst_size(&pile_a));

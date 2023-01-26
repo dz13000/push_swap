@@ -40,12 +40,12 @@ t_pile	*ft_def_pile_a(int ac, char **av)
 		}
 		free(tab);
 	}
-	t_pile *tmp;
-	tmp = res;
-	while (tmp)
-	{
-		printf("La liste : %d\n", tmp->nb);
-		tmp = tmp->next;
-	}
+	// t_pile *tmp;
+	// tmp = res;
+	// while (tmp)
+	// {
+	// 	printf("La liste : %d\n", tmp->nb);
+	// 	tmp = tmp->next;
+	// }
 	return (res);
 }
