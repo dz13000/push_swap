@@ -97,6 +97,8 @@ void	rotate_a(t_pile **pile_a)
 
 	if (!(*pile_a))
 		return ;
+	if (ft_lst_size(&(*pile_a)) == 1)
+		return ;
 	tmp = (*pile_a);
 	tmp2 = (*pile_a);
 	(*pile_a) = (*pile_a)->next;
@@ -108,4 +110,3 @@ void	rotate_a(t_pile **pile_a)
 	tmp2->next = NULL;
 	write(1, "ra\n", 3);
 }
-

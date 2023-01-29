@@ -36,8 +36,9 @@ typedef struct s_pile
 {
 	int				nb;
 	int				lis;
-	int *tab;
-	int count;
+	int				*tab;
+	int				count;
+	int				daron;
 	struct s_pile	*next;
 }					t_pile;
 
@@ -62,18 +63,28 @@ void				reverse_rotate_a(t_pile **pile_a);
 void				reverse_rotate_b(t_pile **pile_b);
 void				rrr(t_pile **pile_a, t_pile **pile_b);
 
-// Algo 
+// Algo
 
 typedef struct s_lis
 {
 	int				*tab;
 }					t_lis;
-
+//lis
 void				lis(t_pile **pile_a, t_pile **pile_b);
-void    def_lis(t_pile **pile_a);
-void    init_lis(t_pile **pile_a);
-int     max_lis(t_pile **pile_a);
-int     verif_lis(t_pile **pile_a, int i);
-void    value_lis(t_pile **pile_a, int lis_max);
+void				def_lis(t_pile **pile_a);
+void				init_lis(t_pile **pile_a);
+int					max_lis(t_pile **pile_a);
+int					verif_lis(t_pile **pile_a, int i);
+void				value_lis(t_pile **pile_a, int lis_max);
+void				pre_tri(t_pile **pile_a, t_pile **pile_b);
+void				pre_tab(t_pile **pile_a, t_lis *lis, int lis_max);
+int					verif_count(t_pile **pile_a);
+void				init_count(t_pile **pile_a);
 
+//tri
+void				tri(t_pile **pile_a, t_pile **pile_b);
+void				ft_daron(t_pile **pile_a, t_pile **pile_b);
+void				init_daron(t_pile **pile_b);
+int					max_pile(t_pile **pile);
+int					min_pile(t_pile **pile);
 #endif

@@ -10,7 +10,9 @@ SRCS = 	main.c \
 		init_pile_a/utils.c \
 		move/move.c \
 		move/move2.c \
-		algo/lis.c 
+		algo/lis.c \
+		algo/lis2.c \
+		algo/tri.c
 
 DEF_COLOR = \033[0;39m
 GRAY = \033[0;90m

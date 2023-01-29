@@ -7,6 +7,8 @@ void	rotate_b(t_pile **pile_b)
 
 	if (!(*pile_b))
 		return ;
+	if (ft_lst_size(&(*pile_b)) == 1)
+		return ;
 	tmp = (*pile_b);
 	tmp2 = (*pile_b);
 	(*pile_b) = (*pile_b)->next;

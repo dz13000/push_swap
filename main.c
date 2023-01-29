@@ -16,8 +16,8 @@ void	free_pile(t_pile **pile)
 
 int	ft_lst_size(t_pile **pile)
 {
-	t_pile *size;
-	int i;
+	t_pile	*size;
+	int		i;
 
 	size = (*pile);
 	i = 0;
@@ -40,11 +40,8 @@ int	main(int ac, char **av)
 	pile_a = ft_def_pile_a(ac, av);
 
 	t_pile *ok;
-	// push_b(&pile_a, &pile_b);
-	// push_b(&pile_a, &pile_b);
-	// push_a(&pile_a, &pile_b);
-	// push_a(&pile_a, &pile_b);
-	lis(&pile_a ,&pile_b);
+	lis(&pile_a, &pile_b);
+	tri(&pile_a, &pile_b);
 	// ok = pile_a;
 	// while (ok)
 	// {
@@ -59,6 +56,7 @@ int	main(int ac, char **av)
 	while (ok2)
 	{
 		printf("PILE B----->%d\n", ok2->nb);
+		printf("Daron----->%d\n", ok2->daron);
 		ok2 = ok2->next;
 	}
 
