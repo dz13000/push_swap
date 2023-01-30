@@ -106,4 +106,11 @@ void				ft_daron(t_pile **pile_a, t_pile **pile_b);
 void				init_daron(t_pile **pile_b);
 int					max_pile(t_pile **pile);
 int					min_pile(t_pile **pile);
+int	calcul_coups1(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a, t_pile *pos_b);
+int	calcul_coups2(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a, t_pile *pos_b);
+int	calcul_coups3(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a, t_pile *pos_b);
+void	asign_cc1(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a, t_pile **pos_b);
+void	asign_cc2(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a, t_pile **pos_b);
+void	asign_cc3(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a, t_pile **pos_b);
+
 #endif
