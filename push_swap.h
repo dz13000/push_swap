@@ -39,6 +39,11 @@ typedef struct s_pile
 	int				*tab;
 	int				count;
 	int				daron;
+	int				up_a;
+	int				up_b;
+	int				down_a;
+	int				down_b;
+	int				total_coups;
 	struct s_pile	*next;
 }					t_pile;
 
@@ -82,6 +87,20 @@ int					verif_count(t_pile **pile_a);
 void				init_count(t_pile **pile_a);
 
 //tri
+typedef struct s_coups
+{
+	int up;
+	int down;
+}				t_coups;
+
+typedef struct s_cc
+{
+	int cc1;
+	int cc2;
+	int cc3;
+	int cc4;
+}				t_cc;
+
 void				tri(t_pile **pile_a, t_pile **pile_b);
 void				ft_daron(t_pile **pile_a, t_pile **pile_b);
 void				init_daron(t_pile **pile_b);

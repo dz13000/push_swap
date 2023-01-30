@@ -12,7 +12,8 @@ SRCS = 	main.c \
 		move/move2.c \
 		algo/lis.c \
 		algo/lis2.c \
-		algo/tri.c
+		algo/daron.c \
+		algo/tri.c 
 
 DEF_COLOR = \033[0;39m
 GRAY = \033[0;90m
