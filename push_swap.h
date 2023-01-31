@@ -5,6 +5,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+extern int nombre;
+
 //Parcing
 typedef struct s_tab
 {

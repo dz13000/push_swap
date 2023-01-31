@@ -1,5 +1,7 @@
 #include "../push_swap.h"
 
+int nombre = 0;
+
 int	calcul_coups1(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a, t_pile *pos_b)
 {
 	t_pile *tmp;
@@ -405,39 +407,55 @@ void	calcul_prix(t_pile **pile_a, t_pile **pile_b)
 
 void	insertion(t_pile **pile_a, t_pile **pile_b, t_pile *pos_b)
 {
+	static int nb = 0;
 	while(pos_b->up_a > 0 && pos_b->up_b > 0)
 	{
 		rr(&(*pile_a), &(*pile_b));
 		pos_b->up_a--;
 		pos_b->up_b--;
+		nombre++;
+		nb++;
 	}
 	while(pos_b->down_a > 0 && pos_b->down_b > 0)
 	{
 		rrr(&(*pile_a), &(*pile_b));
 		pos_b->down_a--;
 		pos_b->down_b--;
+		nb++;
+		nombre++;
 	}
 	while(pos_b->up_a > 0)
 	{
 		rotate_a(&(*pile_a));
 		pos_b->up_a--;
+		nb++;
+		nombre++;
 	}
 	while(pos_b->up_b > 0)
 	{
 		rotate_b(&(*pile_b));
 		pos_b->up_b--;
+		nb++;
+		nombre++;
 	}
 	while(pos_b->down_a > 0)
 	{
 		reverse_rotate_a(&(*pile_a));
 		pos_b->down_a--;
+		nb++;
+		nombre++;
 	}
 	while(pos_b->down_b > 0)
 	{
 		reverse_rotate_b(&(*pile_b));
 		pos_b->down_b--;
+		nb++;
+		nombre++;
 	}
 	push_a(&(*pile_a), &(*pile_b));
+	nb++;
+	nombre++;
+	printf("%d\n", nb);
 }
 
 int 	minimum_coups(t_pile **pile_b)

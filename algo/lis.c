@@ -151,11 +151,13 @@ void	pre_tri(t_pile **pile_a, t_pile **pile_b)
 		{
 			push_b(&(*pile_a), &(*pile_b));
 			tmp = (*pile_a);
+			nombre++;
 		}
 		if (tmp->count != 0)
 		{
 			rotate_a(&(*pile_a));
 			tmp = (*pile_a);
+			nombre++;
 		}
 		if (verif_count(&*pile_a) == 0)
 			break ;
@@ -166,9 +168,9 @@ void	lis(t_pile **pile_a, t_pile **pile_b)
 {
 	t_lis	lis;
 	int		lis_max;
-	int		j;
+	// int		j;
 
-	j = 0;
+	// j = 0;
 	lis_max = 0;
 	init_lis(&(*pile_a));
 	init_count(&(*pile_a));
@@ -177,10 +179,10 @@ void	lis(t_pile **pile_a, t_pile **pile_b)
 	value_lis(*(&pile_a), lis_max);
 	lis.tab = malloc(sizeof(int) * lis_max);
 	pre_tab(&(*pile_a), &lis, lis_max);
-	while (j < lis_max)
-	{
-		printf("Le lis.tabLEAU %d\n", lis.tab[j++]);
-	}
+	// while (j < lis_max)
+	// {
+	// 	printf("Le lis.tabLEAU %d\n", lis.tab[j++]);
+	// }
 	pre_tri(&(*pile_a), &(*pile_b));
 	free(lis.tab);
 }
