@@ -127,7 +127,7 @@ int	calcul_coups3(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a, t_pile *pos_b
 	j--;
 	if (j == 0)
 		return(i);
-	r = ft_lst_size(&(*pile_b)) - j;
+	r = (ft_lst_size(&(*pile_b))) - j;
 	return(r + i);
 }
 
@@ -162,7 +162,7 @@ int	calcul_coups4(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a, t_pile *pos_b
 	j--;
 	if (i == 0)
 		return(j);
-	r = ft_lst_size(&(*pile_b)) - i;
+	r = (ft_lst_size(&(*pile_a))) - i;
 	return(r + j);
 }
 
@@ -304,7 +304,7 @@ void	asign_cc3(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a, t_pile **pos_b)
 		(*pos_b)->total_coups = i + j;
 		return;
 	}
-	(*pos_b)->down_b = ft_lst_size(&(*pile_b)) - j;
+	(*pos_b)->down_b = (ft_lst_size(&(*pile_b))) - j;
 	(*pos_b)->total_coups = i + (ft_lst_size(&(*pile_b)) - j);
 }
 
@@ -340,11 +340,12 @@ void	asign_cc4(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a, t_pile **pos_b)
 	(*pos_b)->up_b = j;
 	if (i == 0)
 	{
+		(*pos_b)->down_a = 0;
 		(*pos_b)->total_coups = i + j;
 		return;
 	}
-	(*pos_b)->down_a = ft_lst_size(&(*pile_b)) - i;
-	(*pos_b)->total_coups = j + (ft_lst_size(&(*pile_b)) - i);
+	(*pos_b)->down_a = (ft_lst_size(&(*pile_a))) - i;
+	(*pos_b)->total_coups = j + (ft_lst_size(&(*pile_a)) - i);
 }
 
 int 	ft_coups_bas(t_cc *cc)
@@ -402,9 +403,88 @@ void	calcul_prix(t_pile **pile_a, t_pile **pile_b)
     }
 }
 
+void	insertion(t_pile **pile_a, t_pile **pile_b, t_pile *pos_b)
+{
+	while(pos_b->up_a > 0 && pos_b->up_b > 0)
+	{
+		rr(&(*pile_a), &(*pile_b));
+		pos_b->up_a--;
+		pos_b->up_b--;
+	}
+	while(pos_b->down_a > 0 && pos_b->down_b > 0)
+	{
+		rrr(&(*pile_a), &(*pile_b));
+		pos_b->down_a--;
+		pos_b->down_b--;
+	}
+	while(pos_b->up_a > 0)
+	{
+		rotate_a(&(*pile_a));
+		pos_b->up_a--;
+	}
+	while(pos_b->up_b > 0)
+	{
+		rotate_b(&(*pile_b));
+		pos_b->up_b--;
+	}
+	while(pos_b->down_a > 0)
+	{
+		reverse_rotate_a(&(*pile_a));
+		pos_b->down_a--;
+	}
+	while(pos_b->down_b > 0)
+	{
+		reverse_rotate_b(&(*pile_b));
+		pos_b->down_b--;
+	}
+	push_a(&(*pile_a), &(*pile_b));
+}
+
+int 	minimum_coups(t_pile **pile_b)
+{
+	int min;
+	t_pile *tmp;
+
+	tmp = (*pile_b);
+	min = 0;
+	min = tmp->total_coups;
+	while(tmp)
+	{
+		if (tmp->total_coups < min)
+			min = tmp->total_coups;
+		tmp = tmp->next;
+	}
+	return(min);
+}
+
 void	tri(t_pile **pile_a, t_pile **pile_b)
 {
-	init_daron(&(*pile_b));
-	ft_daron(&(*pile_a), &(*pile_b));
-	calcul_prix(&(*pile_a), &(*pile_b));
+	t_pile *tmp;
+	t_pile *tmp2;
+	int min;
+
+	tmp = (*pile_b);
+	min = 0;
+	// init_daron(&(*pile_b));
+	// ft_daron(&(*pile_a), &(*pile_b));
+	// calcul_prix(&(*pile_a), &(*pile_b));
+	while(tmp)
+	{	
+		init_daron(&(*pile_b));
+		ft_daron(&(*pile_a), &(*pile_b));
+		calcul_prix(&(*pile_a), &(*pile_b));
+		min = minimum_coups(&(*pile_b));
+		tmp2 = (*pile_b);
+		while (tmp2)
+		{
+			if (tmp2->total_coups == min)
+			{
+				insertion(&(*pile_a), &(*pile_b), tmp2);
+				break;
+			}
+			tmp2 = tmp2->next;
+		}
+		tmp = tmp->next;
+		tmp = (*pile_b);
+	}
 }

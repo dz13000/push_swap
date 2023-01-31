@@ -65,6 +65,22 @@ int	main(int ac, char **av)
 		ok2 = ok2->next;
 	}
 
+	t_pile *tmp2 = pile_a;
+	int min;
+	min = tmp2->nb;
+	while(tmp2)
+	{
+		if (tmp2->nb < min)
+			min = tmp2->nb;
+		tmp2 = tmp2->next;
+	}
+	tmp2 = pile_a;
+	while (tmp2->nb != min)
+	{
+    	rotate_a(&pile_a);
+    	tmp2 = pile_a;
+	}
+
 	printf("La taille de la pile A est  : %d\n", ft_lst_size(&pile_a));
 	ok = pile_a;
 	while (ok)
