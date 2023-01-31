@@ -55,11 +55,11 @@ int	main(int ac, char **av)
 	ok2 = pile_b;
 	while (ok2)
 	{
-		printf("PILE B----->%d\n", ok2->nb);
+		printf("***PILE B----->%d***\n", ok2->nb);
 		printf("Daron----->%d\n", ok2->daron);
-		// printf("UP_B-------->%d\n", ok2->up_b);
+		printf("UP_B-------->%d\n", ok2->up_b);
 		printf("UP_A-------->%d\n", ok2->up_a);
-		// printf("DOWN_A-------->%d\n", ok2->down_a);
+		printf("DOWN_A-------->%d\n", ok2->down_a);
 		printf("DOWN_B-------->%d\n", ok2->down_b);
 		printf("TOTAL-------->%d\n", ok2->total_coups);
 		ok2 = ok2->next;
