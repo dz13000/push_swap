@@ -39,7 +39,7 @@ int	main(int ac, char **av)
 	pile_b = 0;
 	pile_a = ft_def_pile_a(ac, av);
 
-	t_pile *ok;
+	// t_pile *ok;
 	lis(&pile_a, &pile_b);
 	tri(&pile_a, &pile_b);
 	// ok = pile_a;
@@ -105,17 +105,17 @@ int	main(int ac, char **av)
 		}
 	}
 
-	printf("La taille de la pile A est  : %d\n", ft_lst_size(&pile_a));
-	ok = pile_a;
-	while (ok)
-	{
-		printf("PILE A----->%d\n", ok->nb);
-		//printf("LIS----->%d\n", ok->lis);
-		// printf("Count----->%d\n", ok->count);
-		ok = ok->next;
-	}
+	// printf("La taille de la pile A est  : %d\n", ft_lst_size(&pile_a));
+	// ok = pile_a;
+	// while (ok)
+	// {
+	// 	printf("PILE A----->%d\n", ok->nb);
+	// 	//printf("LIS----->%d\n", ok->lis);
+	// 	// printf("Count----->%d\n", ok->count);
+	// 	ok = ok->next;
+	// }
 
-	printf("La taille de la pile A est  : %d\n", ft_lst_size(&pile_a));
+	// printf("La taille de la pile A est  : %d\n", ft_lst_size(&pile_a));
 	printf("Le nombre de coups est de : %d\n", nombre);
 	free_pile(&pile_a);
 	free_pile(&pile_b);

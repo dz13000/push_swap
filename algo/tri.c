@@ -455,7 +455,7 @@ void	insertion(t_pile **pile_a, t_pile **pile_b, t_pile *pos_b)
 	push_a(&(*pile_a), &(*pile_b));
 	nb++;
 	nombre++;
-	printf("%d\n", nb);
+	//printf("%d\n", nb);
 }
 
 int 	minimum_coups(t_pile **pile_b)
