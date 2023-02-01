@@ -5,7 +5,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-extern int nombre;
+extern int			nombre;
 
 //Parcing
 typedef struct s_tab
@@ -91,28 +91,34 @@ void				init_count(t_pile **pile_a);
 //tri
 typedef struct s_coups
 {
-	int up;
-	int down;
-}				t_coups;
+	int				up;
+	int				down;
+}					t_coups;
 
 typedef struct s_cc
 {
-	int cc1;
-	int cc2;
-	int cc3;
-	int cc4;
-}				t_cc;
+	int				cc1;
+	int				cc2;
+	int				cc3;
+	int				cc4;
+}					t_cc;
 
 void				tri(t_pile **pile_a, t_pile **pile_b);
 void				ft_daron(t_pile **pile_a, t_pile **pile_b);
 void				init_daron(t_pile **pile_b);
 int					max_pile(t_pile **pile);
 int					min_pile(t_pile **pile);
-int	calcul_coups1(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a, t_pile *pos_b);
-int	calcul_coups2(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a, t_pile *pos_b);
-int	calcul_coups3(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a, t_pile *pos_b);
-void	asign_cc1(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a, t_pile **pos_b);
-void	asign_cc2(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a, t_pile **pos_b);
-void	asign_cc3(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a, t_pile **pos_b);
+int					calcul_coups1(t_pile **pile_a, t_pile **pile_b,
+						t_pile *pos_a, t_pile *pos_b);
+int					calcul_coups2(t_pile **pile_a, t_pile **pile_b,
+						t_pile *pos_a, t_pile *pos_b);
+int					calcul_coups3(t_pile **pile_a, t_pile **pile_b,
+						t_pile *pos_a, t_pile *pos_b);
+void				asign_cc1(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a,
+						t_pile **pos_b);
+void				asign_cc2(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a,
+						t_pile **pos_b);
+void				asign_cc3(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a,
+						t_pile **pos_b);
 
 #endif

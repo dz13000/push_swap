@@ -34,18 +34,6 @@ void	swap(t_pile *pile_a, t_pile *pile_b, char c)
 	}
 }
 
-// void	printt(t_pile *ptr)
-// {
-// 	t_pile	*ok;
-
-// 	ok = ptr;
-// 	while (ok)
-// 	{
-// 		printf("--< %d\n", ok->nb);
-// 		ok = ok->next;
-// 	}
-// }
-
 void	push_b(t_pile **pile_a, t_pile **pile_b)
 {
 	t_pile	*tmp;

@@ -1,33 +1,34 @@
 #include "../push_swap.h"
 
-int nombre = 0;
+int		nombre = 0;
 
-int	calcul_coups1(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a, t_pile *pos_b)
+int	calcul_coups1(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a,
+		t_pile *pos_b)
 {
-	t_pile *tmp;
-	t_pile *tmp2;
-	int i;
-	int j;
-	int r;
+	t_pile	*tmp;
+	t_pile	*tmp2;
+	int		i;
+	int		j;
+	int		r;
 
 	tmp = (*pile_a);
 	tmp2 = (*pile_b);
 	i = 0;
 	j = 0;
 	r = 0;
-	while(tmp)
+	while (tmp)
 	{
 		i++;
 		if (tmp == pos_a)
-			break;
+			break ;
 		tmp = tmp->next;
 	}
 	i--;
-	while(tmp2)
+	while (tmp2)
 	{
 		j++;
 		if (tmp2 == pos_b)
-			break;
+			break ;
 		tmp2 = tmp2->next;
 	}
 	j--;
@@ -36,23 +37,24 @@ int	calcul_coups1(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a, t_pile *pos_b
 	if (j >= i)
 	{
 		r = j - i;
-		return(r + i);
+		return (r + i);
 	}
 	else
 	{
 		r = i - j;
-		return(r + j);
+		return (r + j);
 	}
 }
 
-int	calcul_coups2(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a, t_pile *pos_b)
+int	calcul_coups2(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a,
+		t_pile *pos_b)
 {
-	t_pile *tmp;
-	t_pile *tmp2;
-	int i;
-	int j;
-	int r;
-	int temp;
+	t_pile	*tmp;
+	t_pile	*tmp2;
+	int		i;
+	int		j;
+	int		r;
+	int		temp;
 
 	tmp = (*pile_a);
 	tmp2 = (*pile_b);
@@ -60,28 +62,28 @@ int	calcul_coups2(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a, t_pile *pos_b
 	j = 0;
 	r = 0;
 	temp = 0;
-	while(tmp)
+	while (tmp)
 	{
 		i++;
 		if (tmp == pos_a)
-			break;
+			break ;
 		tmp = tmp->next;
 	}
 	i--;
-	while(tmp2)
+	while (tmp2)
 	{
 		j++;
 		if (tmp2 == pos_b)
-			break;
+			break ;
 		tmp2 = tmp2->next;
 	}
 	j--;
 	if (i == 0 && j == 0)
-		return(0);
+		return (0);
 	if (i == 0)
-		return(ft_lst_size(&(*pile_a)) - j);
+		return (ft_lst_size(&(*pile_a)) - j);
 	if (j == 0)
-		return(ft_lst_size(&(*pile_a)) - i);
+		return (ft_lst_size(&(*pile_a)) - i);
 	temp = ft_lst_size(&(*pile_a)) - i;
 	i = temp;
 	temp = ft_lst_size(&(*pile_b)) - j;
@@ -89,103 +91,106 @@ int	calcul_coups2(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a, t_pile *pos_b
 	if (j >= i)
 	{
 		r = j - i;
-		return(r + i);
+		return (r + i);
 	}
 	else
 	{
 		r = i - j;
-		return(r + j);
+		return (r + j);
 	}
 }
 
-int	calcul_coups3(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a, t_pile *pos_b)
+int	calcul_coups3(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a,
+		t_pile *pos_b)
 {
-	t_pile *tmp;
-	t_pile *tmp2;
-	int i;
-	int j;
-	int r;
+	t_pile	*tmp;
+	t_pile	*tmp2;
+	int		i;
+	int		j;
+	int		r;
 
 	tmp = (*pile_a);
 	tmp2 = (*pile_b);
 	i = 0;
 	j = 0;
 	r = 0;
-	while(tmp)
+	while (tmp)
 	{
 		i++;
 		if (tmp == pos_a)
-			break;
+			break ;
 		tmp = tmp->next;
 	}
 	i--;
-	while(tmp2)
+	while (tmp2)
 	{
 		j++;
 		if (tmp2 == pos_b)
-			break;
+			break ;
 		tmp2 = tmp2->next;
 	}
 	j--;
 	if (j == 0)
-		return(i);
+		return (i);
 	r = (ft_lst_size(&(*pile_b))) - j;
-	return(r + i);
+	return (r + i);
 }
 
-int	calcul_coups4(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a, t_pile *pos_b)
+int	calcul_coups4(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a,
+		t_pile *pos_b)
 {
-	t_pile *tmp;
-	t_pile *tmp2;
-	int i;
-	int j;
-	int r;
+	t_pile	*tmp;
+	t_pile	*tmp2;
+	int		i;
+	int		j;
+	int		r;
 
 	tmp = (*pile_a);
 	tmp2 = (*pile_b);
 	i = 0;
 	j = 0;
 	r = 0;
-	while(tmp)
+	while (tmp)
 	{
 		i++;
 		if (tmp == pos_a)
-			break;
+			break ;
 		tmp = tmp->next;
 	}
 	i--;
-	while(tmp2)
+	while (tmp2)
 	{
 		j++;
 		if (tmp2 == pos_b)
-			break;
+			break ;
 		tmp2 = tmp2->next;
 	}
 	j--;
 	if (i == 0)
-		return(j);
+		return (j);
 	r = (ft_lst_size(&(*pile_a))) - i;
-	return(r + j);
+	return (r + j);
 }
 
-void	asign_cc1(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a, t_pile **pos_b)
+void	asign_cc1(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a,
+		t_pile **pos_b)
 {
-	t_pile *tmp;
-	t_pile *tmp2;
-	int i;
-	int j;
-	int	tt;
+	t_pile	*tmp;
+	t_pile	*tmp2;
+	int		i;
+	int		j;
+	int		tt;
 
 	tmp = (*pile_a);
 	tmp2 = (*pile_b);
 	i = 0;
 	j = 0;
 	tt = 0;
-	while(tmp)
+	while (tmp)
 	{
 		i++;
 		if (tmp == (*pos_a))
-			break;
+			break ;
 		tmp = tmp->next;
 	}
 	i--;
@@ -195,7 +200,7 @@ void	asign_cc1(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a, t_pile **pos_b)
 	{
 		j++;
 		if (tmp2 == (*pos_b))
-			break;
+			break ;
 		tmp2 = tmp2->next;
 	}
 	j--;
@@ -213,14 +218,15 @@ void	asign_cc1(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a, t_pile **pos_b)
 	}
 }
 
-void	asign_cc2(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a, t_pile **pos_b)
+void	asign_cc2(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a,
+		t_pile **pos_b)
 {
-	t_pile *tmp;
-	t_pile *tmp2;
-	int i;
-	int j;
-	int	tt;
-	int temp;
+	t_pile	*tmp;
+	t_pile	*tmp2;
+	int		i;
+	int		j;
+	int		tt;
+	int		temp;
 
 	tmp = (*pile_a);
 	tmp2 = (*pile_b);
@@ -228,29 +234,29 @@ void	asign_cc2(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a, t_pile **pos_b)
 	j = 0;
 	tt = 0;
 	temp = 0;
-	while(tmp)
+	while (tmp)
 	{
 		i++;
 		if (tmp == (*pos_a))
-			break;
+			break ;
 		tmp = tmp->next;
 	}
 	i--;
-	while(tmp2)
+	while (tmp2)
 	{
 		j++;
 		if (tmp2 == (*pos_b))
-			break;
+			break ;
 		tmp2 = tmp2->next;
 	}
 	j--;
 	if (i != 0)
-	{	
+	{
 		temp = ft_lst_size(&(*pile_a)) - i;
 		i = temp;
 	}
 	if (j != 0)
-	{	
+	{
 		temp = ft_lst_size(&(*pile_b)) - j;
 		j = temp;
 	}
@@ -270,30 +276,31 @@ void	asign_cc2(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a, t_pile **pos_b)
 	}
 }
 
-void	asign_cc3(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a, t_pile **pos_b)
+void	asign_cc3(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a,
+		t_pile **pos_b)
 {
-	t_pile *tmp;
-	t_pile *tmp2;
-	int i;
-	int j;
+	t_pile	*tmp;
+	t_pile	*tmp2;
+	int		i;
+	int		j;
 
 	tmp = (*pile_a);
 	tmp2 = (*pile_b);
 	i = 0;
 	j = 0;
-	while(tmp)
+	while (tmp)
 	{
 		i++;
 		if (tmp == (*pos_a))
-			break;
+			break ;
 		tmp = tmp->next;
 	}
 	i--;
-	while(tmp2)
+	while (tmp2)
 	{
 		j++;
 		if (tmp2 == (*pos_b))
-			break;
+			break ;
 		tmp2 = tmp2->next;
 	}
 	j--;
@@ -304,36 +311,37 @@ void	asign_cc3(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a, t_pile **pos_b)
 	{
 		(*pos_b)->down_b = j;
 		(*pos_b)->total_coups = i + j;
-		return;
+		return ;
 	}
 	(*pos_b)->down_b = (ft_lst_size(&(*pile_b))) - j;
 	(*pos_b)->total_coups = i + (ft_lst_size(&(*pile_b)) - j);
 }
 
-void	asign_cc4(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a, t_pile **pos_b)
+void	asign_cc4(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a,
+		t_pile **pos_b)
 {
-	t_pile *tmp;
-	t_pile *tmp2;
-	int i;
-	int j;
+	t_pile	*tmp;
+	t_pile	*tmp2;
+	int		i;
+	int		j;
 
 	tmp = (*pile_a);
 	tmp2 = (*pile_b);
 	i = 0;
 	j = 0;
-	while(tmp)
+	while (tmp)
 	{
 		i++;
 		if (tmp == (*pos_a))
-			break;
+			break ;
 		tmp = tmp->next;
 	}
 	i--;
-	while(tmp2)
+	while (tmp2)
 	{
 		j++;
 		if (tmp2 == (*pos_b))
-			break;
+			break ;
 		tmp2 = tmp2->next;
 	}
 	j--;
@@ -344,15 +352,15 @@ void	asign_cc4(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a, t_pile **pos_b)
 	{
 		(*pos_b)->down_a = 0;
 		(*pos_b)->total_coups = i + j;
-		return;
+		return ;
 	}
 	(*pos_b)->down_a = (ft_lst_size(&(*pile_a))) - i;
 	(*pos_b)->total_coups = j + (ft_lst_size(&(*pile_a)) - i);
 }
 
-int 	ft_coups_bas(t_cc *cc)
+int	ft_coups_bas(t_cc *cc)
 {
-	int min;
+	int	min;
 
 	min = 0;
 	min = cc->cc1;
@@ -362,25 +370,21 @@ int 	ft_coups_bas(t_cc *cc)
 		min = cc->cc3;
 	if (cc->cc4 < min)
 		min = cc->cc4;
-	return(min);
+	return (min);
 }
 void	calcul_prix(t_pile **pile_a, t_pile **pile_b)
 {
 	t_pile	*tmp;
 	t_pile	*tmp2;
 	t_cc	cc;
-	int min;
+	int		min;
 
-	cc.cc1 = 0;
-	cc.cc2 = 0;
-	cc.cc3 = 0;
-	cc.cc4 = 0;
 	min = 0;
 	tmp2 = (*pile_b);
-    while(tmp2)
-    {
+	while (tmp2)
+	{
 		tmp = (*pile_a);
-		while(tmp)
+		while (tmp)
 		{
 			if (tmp->nb == tmp2->daron)
 			{
@@ -397,18 +401,20 @@ void	calcul_prix(t_pile **pile_a, t_pile **pile_b)
 					asign_cc3(&(*pile_a), &(*pile_b), (&tmp), (&tmp2));
 				if (min == cc.cc4)
 					asign_cc4(&(*pile_a), &(*pile_b), (&tmp), (&tmp2));
-				break;
+				break ;
 			}
 			tmp = tmp->next;
 		}
 		tmp2 = tmp2->next;
-    }
+	}
 }
 
 void	insertion(t_pile **pile_a, t_pile **pile_b, t_pile *pos_b)
 {
-	static int nb = 0;
-	while(pos_b->up_a > 0 && pos_b->up_b > 0)
+	static int	nb;
+
+	nb = 0;
+	while (pos_b->up_a > 0 && pos_b->up_b > 0)
 	{
 		rr(&(*pile_a), &(*pile_b));
 		pos_b->up_a--;
@@ -416,7 +422,7 @@ void	insertion(t_pile **pile_a, t_pile **pile_b, t_pile *pos_b)
 		nombre++;
 		nb++;
 	}
-	while(pos_b->down_a > 0 && pos_b->down_b > 0)
+	while (pos_b->down_a > 0 && pos_b->down_b > 0)
 	{
 		rrr(&(*pile_a), &(*pile_b));
 		pos_b->down_a--;
@@ -424,28 +430,28 @@ void	insertion(t_pile **pile_a, t_pile **pile_b, t_pile *pos_b)
 		nb++;
 		nombre++;
 	}
-	while(pos_b->up_a > 0)
+	while (pos_b->up_a > 0)
 	{
 		rotate_a(&(*pile_a));
 		pos_b->up_a--;
 		nb++;
 		nombre++;
 	}
-	while(pos_b->up_b > 0)
+	while (pos_b->up_b > 0)
 	{
 		rotate_b(&(*pile_b));
 		pos_b->up_b--;
 		nb++;
 		nombre++;
 	}
-	while(pos_b->down_a > 0)
+	while (pos_b->down_a > 0)
 	{
 		reverse_rotate_a(&(*pile_a));
 		pos_b->down_a--;
 		nb++;
 		nombre++;
 	}
-	while(pos_b->down_b > 0)
+	while (pos_b->down_b > 0)
 	{
 		reverse_rotate_b(&(*pile_b));
 		pos_b->down_b--;
@@ -458,21 +464,21 @@ void	insertion(t_pile **pile_a, t_pile **pile_b, t_pile *pos_b)
 	//printf("%d\n", nb);
 }
 
-int 	minimum_coups(t_pile **pile_b)
+int	minimum_coups(t_pile **pile_b)
 {
-	int min;
-	t_pile *tmp;
+	int		min;
+	t_pile	*tmp;
 
 	tmp = (*pile_b);
 	min = 0;
 	min = tmp->total_coups;
-	while(tmp)
+	while (tmp)
 	{
 		if (tmp->total_coups < min)
 			min = tmp->total_coups;
 		tmp = tmp->next;
 	}
-	return(min);
+	return (min);
 }
 
 void	tri(t_pile **pile_a, t_pile **pile_b)
@@ -483,11 +489,8 @@ void	tri(t_pile **pile_a, t_pile **pile_b)
 
 	tmp = (*pile_b);
 	min = 0;
-	// init_daron(&(*pile_b));
-	// ft_daron(&(*pile_a), &(*pile_b));
-	// calcul_prix(&(*pile_a), &(*pile_b));
-	while(tmp)
-	{	
+	while (tmp)
+	{
 		init_daron(&(*pile_b));
 		ft_daron(&(*pile_a), &(*pile_b));
 		calcul_prix(&(*pile_a), &(*pile_b));
@@ -498,7 +501,7 @@ void	tri(t_pile **pile_a, t_pile **pile_b)
 			if (tmp2->total_coups == min)
 			{
 				insertion(&(*pile_a), &(*pile_b), tmp2);
-				break;
+				break ;
 			}
 			tmp2 = tmp2->next;
 		}

@@ -59,7 +59,6 @@ int	*def_tab2(char **av, int *size)
 	int	i;
 
 	i = 1;
-	// tab = ft_split(av[1], ' ');
 	while (av[i])
 		i++;
 	tab2 = malloc(sizeof(int) * i);
@@ -73,7 +72,6 @@ int	*def_tab2(char **av, int *size)
 		j++;
 		i++;
 	}
-	// ft_free2(tab);
 	*size = i;
 	return (tab2);
 }

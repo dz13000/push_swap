@@ -54,7 +54,7 @@ int	count_tab(char **tab, t_tab *tab2)
 		free(tab[i - 1]);
 		free(tab);
 		free(tab2->tab);
-		exit (1);
+		exit(1);
 	}
 	return (0);
 }

@@ -1,121 +1,100 @@
 #include "push_swap.h"
 
-void	free_pile(t_pile **pile)
+int	ft_min(t_pile **pile_a)
 {
-	t_pile	*tmp;
+	int		min;
 	t_pile	*tmp2;
 
-	tmp = (*pile);
-	while (tmp)
-	{
-		tmp2 = tmp->next;
-		free(tmp);
-		tmp = tmp2;
-	}
-}
-
-int	ft_lst_size(t_pile **pile)
-{
-	t_pile	*size;
-	int		i;
-
-	size = (*pile);
-	i = 0;
-	while (size)
-	{
-		size = size->next;
-		i++;
-	}
-	return (i);
-}
-
-int	main(int ac, char **av)
-{
-	if (ft_parcing(ac, av))
-		return (0);
-	t_pile *pile_a = 0;
-	t_pile *pile_b;
-
-	pile_b = 0;
-	pile_a = ft_def_pile_a(ac, av);
-
-	// t_pile *ok;
-	lis(&pile_a, &pile_b);
-	tri(&pile_a, &pile_b);
-	// ok = pile_a;
-	// while (ok)
-	// {
-	// 	printf("PILE A----->%d\n", ok->nb);
-	// 	printf("LIS----->%d\n", ok->lis);
-	// 	printf("Count----->%d\n", ok->count);
-	// 	ok = ok->next;
-	// }
-
-	// t_pile *ok2;
-	// ok2 = pile_b;
-	// while (ok2)
-	// {
-	// 	printf("***PILE B----->%d***\n", ok2->nb);
-	// 	printf("Daron----->%d\n", ok2->daron);
-	// 	printf("UP_B-------->%d\n", ok2->up_b);
-	// 	printf("UP_A-------->%d\n", ok2->up_a);
-	// 	printf("DOWN_A-------->%d\n", ok2->down_a);
-	// 	printf("DOWN_B-------->%d\n", ok2->down_b);
-	// 	printf("TOTAL-------->%d\n", ok2->total_coups);
-	// 	ok2 = ok2->next;
-	// }
-
-	t_pile *tmp2 = pile_a;
-	int min;
+	tmp2 = (*pile_a);
 	min = tmp2->nb;
-	while(tmp2)
+	while (tmp2)
 	{
 		if (tmp2->nb < min)
 			min = tmp2->nb;
 		tmp2 = tmp2->next;
 	}
-	tmp2 = pile_a;
-	int cc = ft_lst_size(&tmp2);
+	return (min);
+}
+
+void	up_a(t_pile **pile_a, int min)
+{
+	t_pile	*tmp2;
+
+	tmp2 = ((*pile_a));
+	while (tmp2->nb != min)
+	{
+		rotate_a(&(*pile_a));
+		nombre++;
+		tmp2 = ((*pile_a));
+	}
+}
+
+void	down_a(t_pile **pile_a, int min)
+{
+	t_pile	*tmp2;
+
+	tmp2 = ((*pile_a));
+	while (tmp2->nb != min)
+	{
+		reverse_rotate_a(&(*pile_a));
+		nombre++;
+		tmp2 = ((*pile_a));
+	}
+}
+
+void	ft_replace(t_pile **pile_a)
+{
+	int		min;
+	t_pile	*tmp2;
+	int		cc;
+	int		moy;
+
+	min = ft_min(&(*pile_a));
+	tmp2 = ((*pile_a));
+	cc = ft_lst_size(&tmp2);
 	cc = cc / 2;
-	int moy = 0;
+	moy = 0;
 	while (tmp2)
 	{
 		if (min == tmp2->nb)
-			break;
+			break ;
 		moy++;
 		tmp2 = tmp2->next;
 	}
-	tmp2 = pile_a;
+	tmp2 = ((*pile_a));
 	if (moy <= cc)
-	{
-		while (tmp2->nb != min)
-		{
-    		rotate_a(&pile_a);
-			nombre++;
-    		tmp2 = pile_a;
-		}
-	}
+		up_a(&(*pile_a), min);
 	else
+		down_a(&(*pile_a), min);
+}
+
+int	main(int ac, char **av)
+{
+	t_pile *pile_a;
+	t_pile *pile_b;
+
+	if (ft_parcing(ac, av))
+		return (0);
+	pile_b = 0;
+	pile_a = 0;
+	pile_a = ft_def_pile_a(ac, av);
+
+	lis(&pile_a, &pile_b);
+	tri(&pile_a, &pile_b);
+	ft_replace(&pile_a);
+
+	t_pile *ok;
+	printf("La taille de la pile A est  : %d\n", ft_lst_size(&pile_a));
+	ok = pile_a;
+	while (ok)
 	{
-		while (tmp2->nb != min)
-		{
-    		reverse_rotate_a(&pile_a);
-			nombre++;
-    		tmp2 = pile_a;
-		}
+		printf("PILE A----->%d\n", ok->nb);
+		//printf("LIS----->%d\n", ok->lis);
+		// printf("Count----->%d\n", ok->count);
+		ok = ok->next;
 	}
 
-	// printf("La taille de la pile A est  : %d\n", ft_lst_size(&pile_a));
-	// ok = pile_a;
-	// while (ok)
-	// {
-	// 	printf("PILE A----->%d\n", ok->nb);
-	// 	//printf("LIS----->%d\n", ok->lis);
-	// 	// printf("Count----->%d\n", ok->count);
-	// 	ok = ok->next;
-	// }
-
-	// printf("La taille de la pile A est  : %d\n", ft_lst_size(&pile_a));
+	printf("La taille de la pile A est  : %d\n", ft_lst_size(&pile_a));
 	printf("Le nombre de coups est de : %d\n", nombre);
 	free_pile(&pile_a);
 	free_pile(&pile_b);
