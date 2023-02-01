@@ -1,6 +1,6 @@
 #include "../push_swap.h"
 
-void	rotate_b(t_pile **pile_b)
+void	rotate_1(t_pile **pile_b)
 {
 	t_pile	*tmp;
 	t_pile	*tmp2;
@@ -18,17 +18,29 @@ void	rotate_b(t_pile **pile_b)
 	}
 	tmp->next = tmp2;
 	tmp2->next = NULL;
-	write(1, "rb\n", 3);
 }
 
-void	rr(t_pile **pile_a, t_pile **pile_b)
+void	rotate_2(t_pile **pile_a)
 {
-	rotate_1(pile_a);
-	rotate_2(pile_b);
-	write(1, "rr\n", 3);
+	t_pile	*tmp;
+	t_pile	*tmp2;
+
+	if (!(*pile_a))
+		return ;
+	if (ft_lst_size(&(*pile_a)) == 1)
+		return ;
+	tmp = (*pile_a);
+	tmp2 = (*pile_a);
+	(*pile_a) = (*pile_a)->next;
+	while (tmp->next != NULL)
+	{
+		tmp = tmp->next;
+	}
+	tmp->next = tmp2;
+	tmp2->next = NULL;
 }
 
-void	reverse_rotate_a(t_pile **pile_a)
+void	reverse_rotate_1(t_pile **pile_a)
 {
 	t_pile	*tmp;
 	t_pile	*tmp2;
@@ -48,10 +60,9 @@ void	reverse_rotate_a(t_pile **pile_a)
 	tmp3 = tmp2;
 	tmp->next = NULL;
 	(*pile_a) = tmp3;
-	write(1, "rra\n", 4);
 }
 
-void	reverse_rotate_b(t_pile **pile_b)
+void	reverse_rotate_2(t_pile **pile_b)
 {
 	t_pile	*tmp;
 	t_pile	*tmp2;
@@ -71,12 +82,4 @@ void	reverse_rotate_b(t_pile **pile_b)
 	tmp3 = tmp2;
 	tmp->next = NULL;
 	(*pile_b) = tmp3;
-	write(1, "rrb\n", 4);
-}
-
-void	rrr(t_pile **pile_a, t_pile **pile_b)
-{
-	reverse_rotate_1(&(*pile_a));
-	reverse_rotate_2(&(*pile_b));
-	write(1, "rrr\n", 4);
 }

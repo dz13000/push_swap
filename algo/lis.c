@@ -77,8 +77,6 @@ void	lis(t_pile **pile_a, t_pile **pile_b)
 	t_lis	lis;
 	int		lis_max;
 
-	// int		j;
-	// j = 0;
 	lis_max = 0;
 	init_lis(&(*pile_a));
 	init_count(&(*pile_a));
@@ -87,17 +85,6 @@ void	lis(t_pile **pile_a, t_pile **pile_b)
 	value_lis(*(&pile_a), lis_max);
 	lis.tab = malloc(sizeof(int) * lis_max);
 	pre_tab(&(*pile_a), &lis, lis_max);
-	// while (j < lis_max)
-	// {
-	// 	printf("Le lis.tabLEAU %d\n", lis.tab[j++]);
-	// }
 	pre_tri(&(*pile_a), &(*pile_b));
 	free(lis.tab);
 }
-
-// tmp2 = (*pile_a);
-// while (tmp2->count != 1)
-// {
-//     rotate_a(&(*pile_a));
-//     tmp2 = (*pile_a);
-// }

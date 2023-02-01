@@ -1,4 +1,24 @@
 #include "../push_swap.h"
+void	def2(char **av, t_pile **res)
+{
+	int *tab;
+	int size;
+
+	size = 0;
+	tab = def_tab2(av, &size);
+	int j;
+	j = 0;
+	(*res) = ft_lst_new(tab[j]);
+	j++;
+	while (j < size - 1)
+	{
+		t_pile *new;
+		new = ft_lst_new(tab[j]);
+		ft_lstadd_back(*res, new);
+		j++;
+	}
+	free(tab);
+}
 
 t_pile	*ft_def_pile_a(int ac, char **av)
 {
@@ -21,24 +41,6 @@ t_pile	*ft_def_pile_a(int ac, char **av)
 		free(tab);
 	}
 	else
-	{
-		int *tab;
-		int size;
-
-		size = 0;
-		tab = def_tab2(av, &size);
-		int j;
-		j = 0;
-		res = ft_lst_new(tab[j]);
-		j++;
-		while (j < size - 1)
-		{
-			t_pile *new;
-			new = ft_lst_new(tab[j]);
-			ft_lstadd_back(res, new);
-			j++;
-		}
-		free(tab);
-	}
+		def2(av, &res);
 	return (res);
 }

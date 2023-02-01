@@ -10,6 +10,7 @@ SRCS = 	main.c \
 		init_pile_a/utils.c \
 		move/move.c \
 		move/move2.c \
+		move/move3.c \
 		algo/lis.c \
 		algo/lis2.c \
 		algo/daron.c \
