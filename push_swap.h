@@ -105,6 +105,9 @@ typedef struct s_cc
 	int				cc2;
 	int				cc3;
 	int				cc4;
+	int min;
+	t_pile	*tmp;
+	t_pile	*tmp2;
 }					t_cc;
 
 void				tri(t_pile **pile_a, t_pile **pile_b);
@@ -118,11 +121,20 @@ int					calcul_coups2(t_pile **pile_a, t_pile **pile_b,
 						t_pile *pos_a, t_pile *pos_b);
 int					calcul_coups3(t_pile **pile_a, t_pile **pile_b,
 						t_pile *pos_a, t_pile *pos_b);
+int					calcul_coups4(t_pile **pile_a, t_pile **pile_b,
+						t_pile *pos_a, t_pile *pos_b);
 void				asign_cc1(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a,
 						t_pile **pos_b);
 void				asign_cc2(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a,
 						t_pile **pos_b);
 void				asign_cc3(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a,
 						t_pile **pos_b);
+void				asign_cc4(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a,
+						t_pile **pos_b);
+int	ft_coups_bas(t_cc *cc);
+void	calcul_prix(t_pile **pile_a, t_pile **pile_b);
+void	calcul_prix2(t_cc *cc, t_pile **pile_a, t_pile **pile_b);
+void	insertion(t_pile **pile_a, t_pile **pile_b, t_pile *pos_b);
+int	minimum_coups(t_pile **pile_b);
 
 #endif

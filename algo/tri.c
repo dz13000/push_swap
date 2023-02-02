@@ -358,57 +358,6 @@ void	asign_cc4(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a,
 	(*pos_b)->total_coups = j + (ft_lst_size(&(*pile_a)) - i);
 }
 
-int	ft_coups_bas(t_cc *cc)
-{
-	int	min;
-
-	min = 0;
-	min = cc->cc1;
-	if (cc->cc2 < min)
-		min = cc->cc2;
-	if (cc->cc3 < min)
-		min = cc->cc3;
-	if (cc->cc4 < min)
-		min = cc->cc4;
-	return (min);
-}
-void	calcul_prix(t_pile **pile_a, t_pile **pile_b)
-{
-	t_pile	*tmp;
-	t_pile	*tmp2;
-	t_cc	cc;
-	int		min;
-
-	min = 0;
-	tmp2 = (*pile_b);
-	while (tmp2)
-	{
-		tmp = (*pile_a);
-		while (tmp)
-		{
-			if (tmp->nb == tmp2->daron)
-			{
-				cc.cc1 = calcul_coups1(&(*pile_a), &(*pile_b), tmp, tmp2);
-				cc.cc2 = calcul_coups2(&(*pile_a), &(*pile_b), tmp, tmp2);
-				cc.cc3 = calcul_coups3(&(*pile_a), &(*pile_b), tmp, tmp2);
-				cc.cc4 = calcul_coups4(&(*pile_a), &(*pile_b), tmp, tmp2);
-				min = ft_coups_bas(&cc);
-				if (min == cc.cc1)
-					asign_cc1(&(*pile_a), &(*pile_b), (&tmp), (&tmp2));
-				if (min == cc.cc2)
-					asign_cc2(&(*pile_a), &(*pile_b), (&tmp), (&tmp2));
-				if (min == cc.cc3)
-					asign_cc3(&(*pile_a), &(*pile_b), (&tmp), (&tmp2));
-				if (min == cc.cc4)
-					asign_cc4(&(*pile_a), &(*pile_b), (&tmp), (&tmp2));
-				break ;
-			}
-			tmp = tmp->next;
-		}
-		tmp2 = tmp2->next;
-	}
-}
-
 void	insertion(t_pile **pile_a, t_pile **pile_b, t_pile *pos_b)
 {
 	static int	nb;
@@ -462,23 +411,6 @@ void	insertion(t_pile **pile_a, t_pile **pile_b, t_pile *pos_b)
 	nb++;
 	nombre++;
 	//printf("%d\n", nb);
-}
-
-int	minimum_coups(t_pile **pile_b)
-{
-	int		min;
-	t_pile	*tmp;
-
-	tmp = (*pile_b);
-	min = 0;
-	min = tmp->total_coups;
-	while (tmp)
-	{
-		if (tmp->total_coups < min)
-			min = tmp->total_coups;
-		tmp = tmp->next;
-	}
-	return (min);
 }
 
 void	tri(t_pile **pile_a, t_pile **pile_b)
