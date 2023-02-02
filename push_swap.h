@@ -110,11 +110,25 @@ typedef struct s_cc
 	t_pile	*tmp2;
 }					t_cc;
 
+typedef struct s_cp
+{
+	t_pile	*tmp;
+	t_pile	*tmp2;
+	int		i;
+	int		j;
+	int		r;
+	int		temp;
+	int		tt;
+}					t_cp;
+
 void				tri(t_pile **pile_a, t_pile **pile_b);
 void				ft_daron(t_pile **pile_a, t_pile **pile_b);
 void				init_daron(t_pile **pile_b);
 int					max_pile(t_pile **pile);
 int					min_pile(t_pile **pile);
+void	asign_cp(t_cp *c, t_pile **pile_a, t_pile **pile_b);
+void	utils_coups1(t_cp *c1, t_pile *pos_a, t_pile *pos_b);
+void	utils_coups2(t_cp *c2, t_pile *pos_a, t_pile *pos_b);
 int					calcul_coups1(t_pile **pile_a, t_pile **pile_b,
 						t_pile *pos_a, t_pile *pos_b);
 int					calcul_coups2(t_pile **pile_a, t_pile **pile_b,
@@ -131,6 +145,10 @@ void				asign_cc3(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a,
 						t_pile **pos_b);
 void				asign_cc4(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a,
 						t_pile **pos_b);
+void	up2(t_pile **pile_a, t_pile **pile_b, t_pile *pos_b);
+void	down2(t_pile **pile_a, t_pile **pile_b, t_pile *pos_b);
+void	up_pa(t_pile **pile_a, t_pile *pos_b);
+void	up_pb(t_pile **pile_a, t_pile *pos_b);
 int	ft_coups_bas(t_cc *cc);
 void	calcul_prix(t_pile **pile_a, t_pile **pile_b);
 void	calcul_prix2(t_cc *cc, t_pile **pile_a, t_pile **pile_b);
