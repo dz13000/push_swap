@@ -18,7 +18,9 @@ SRCS = 	main.c \
 		algo/tri2.c \
 		algo/tri3.c \
 		algo/tri4.c \
-		algo/tri5.c 
+		algo/tri5.c \
+		algo/tri6.c 
+
 
 DEF_COLOR = \033[0;39m
 GRAY = \033[0;90m

@@ -129,6 +129,7 @@ int					min_pile(t_pile **pile);
 void	asign_cp(t_cp *c, t_pile **pile_a, t_pile **pile_b);
 void	utils_coups1(t_cp *c1, t_pile *pos_a, t_pile *pos_b);
 void	utils_coups2(t_cp *c2, t_pile *pos_a, t_pile *pos_b);
+void	utils_cc1(t_cp *cc1, t_pile **pos_a, t_pile **pos_b);
 int					calcul_coups1(t_pile **pile_a, t_pile **pile_b,
 						t_pile *pos_a, t_pile *pos_b);
 int					calcul_coups2(t_pile **pile_a, t_pile **pile_b,

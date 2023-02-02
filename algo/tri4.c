@@ -96,3 +96,14 @@ int	calcul_coups1(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a,
 		return (c1.r + c1.j);
 	}
 }
+
+void	asign_cp(t_cp *c, t_pile **pile_a, t_pile **pile_b)
+{
+	c->tmp = (*pile_a);
+	c->tmp2 = (*pile_b);
+	c->i = 0;
+	c->j = 0;
+	c->r = 0;
+	c->temp = 0;
+	c->tt = 0;
+}
