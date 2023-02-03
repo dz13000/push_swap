@@ -9,28 +9,28 @@ void	ft_lstadd_front(t_pile **pile_a, t_pile *new)
 	*pile_a = new;
 }
 
-void	swap(t_pile *pile_a, t_pile *pile_b, char c)
+void	swap(t_pile **pile_a, t_pile **pile_b, char c)
 {
 	int	tmp;
 
 	if (c == 'a')
 	{
-		tmp = pile_a->next->nb;
-		pile_a->next->nb = pile_a->nb;
-		pile_a->nb = tmp;
+		tmp = (*pile_a)->next->nb;
+		(*pile_a)->next->nb = (*pile_a)->nb;
+		(*pile_a)->nb = tmp;
 		write(1, "sa\n", 3);
 	}
 	if (c == 'b')
 	{
-		tmp = pile_b->next->nb;
-		pile_b->next->nb = pile_b->nb;
-		pile_b->nb = tmp;
+		tmp = (*pile_b)->next->nb;
+		(*pile_b)->next->nb = (*pile_b)->nb;
+		(*pile_b)->nb = tmp;
 		write(1, "sb\n", 3);
 	}
 	if (c == '2')
 	{
-		swap(pile_a, pile_b, 'a');
-		swap(pile_a, pile_b, 'b');
+		swap(&(*pile_a), &(*pile_b), 'a');
+		swap(&(*pile_a), &(*pile_b), 'b');
 	}
 }
 

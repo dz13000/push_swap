@@ -60,15 +60,15 @@ void				ft_lstadd_back(t_pile *lst, t_pile *new);
 int					ft_lst_size(t_pile **pile);
 
 // Moves
-void				swap(t_pile *pile_a, t_pile *pile_b, char c);
+void				swap(t_pile **pile_a, t_pile **pile_b, char c);
 void				push_b(t_pile **pile_a, t_pile **pile_b);
 void				push_a(t_pile **pile_a, t_pile **pile_b);
 void				rotate_a(t_pile **pile_a);
 void				rotate_b(t_pile **pile_b);
-void	rotate_1(t_pile **pile_b);
-void	rotate_2(t_pile **pile_b);
-void	reverse_rotate_1(t_pile **pile_a);
-void	reverse_rotate_2(t_pile **pile_a);
+void				rotate_1(t_pile **pile_b);
+void				rotate_2(t_pile **pile_b);
+void				reverse_rotate_1(t_pile **pile_a);
+void				reverse_rotate_2(t_pile **pile_a);
 void				rr(t_pile **pile_a, t_pile **pile_b);
 void				reverse_rotate_a(t_pile **pile_a);
 void				reverse_rotate_b(t_pile **pile_b);
@@ -105,20 +105,20 @@ typedef struct s_cc
 	int				cc2;
 	int				cc3;
 	int				cc4;
-	int min;
-	t_pile	*tmp;
-	t_pile	*tmp2;
+	int				min;
+	t_pile			*tmp;
+	t_pile			*tmp2;
 }					t_cc;
 
 typedef struct s_cp
 {
-	t_pile	*tmp;
-	t_pile	*tmp2;
-	int		i;
-	int		j;
-	int		r;
-	int		temp;
-	int		tt;
+	t_pile			*tmp;
+	t_pile			*tmp2;
+	int				i;
+	int				j;
+	int				r;
+	int				temp;
+	int				tt;
 }					t_cp;
 
 void				tri(t_pile **pile_a, t_pile **pile_b);
@@ -126,10 +126,10 @@ void				ft_daron(t_pile **pile_a, t_pile **pile_b);
 void				init_daron(t_pile **pile_b);
 int					max_pile(t_pile **pile);
 int					min_pile(t_pile **pile);
-void	asign_cp(t_cp *c, t_pile **pile_a, t_pile **pile_b);
-void	utils_coups1(t_cp *c1, t_pile *pos_a, t_pile *pos_b);
-void	utils_coups2(t_cp *c2, t_pile *pos_a, t_pile *pos_b);
-void	utils_cc1(t_cp *cc1, t_pile **pos_a, t_pile **pos_b);
+void				asign_cp(t_cp *c, t_pile **pile_a, t_pile **pile_b);
+void				utils_coups1(t_cp *c1, t_pile *pos_a, t_pile *pos_b);
+void				utils_coups2(t_cp *c2, t_pile *pos_a, t_pile *pos_b);
+void				utils_cc1(t_cp *cc1, t_pile **pos_a, t_pile **pos_b);
 int					calcul_coups1(t_pile **pile_a, t_pile **pile_b,
 						t_pile *pos_a, t_pile *pos_b);
 int					calcul_coups2(t_pile **pile_a, t_pile **pile_b,
@@ -146,14 +146,14 @@ void				asign_cc3(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a,
 						t_pile **pos_b);
 void				asign_cc4(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a,
 						t_pile **pos_b);
-void	up2(t_pile **pile_a, t_pile **pile_b, t_pile *pos_b);
-void	down2(t_pile **pile_a, t_pile **pile_b, t_pile *pos_b);
-void	up_pa(t_pile **pile_a, t_pile *pos_b);
-void	up_pb(t_pile **pile_a, t_pile *pos_b);
-int	ft_coups_bas(t_cc *cc);
-void	calcul_prix(t_pile **pile_a, t_pile **pile_b);
-void	calcul_prix2(t_cc *cc, t_pile **pile_a, t_pile **pile_b);
-void	insertion(t_pile **pile_a, t_pile **pile_b, t_pile *pos_b);
-int	minimum_coups(t_pile **pile_b);
+void				up2(t_pile **pile_a, t_pile **pile_b, t_pile *pos_b);
+void				down2(t_pile **pile_a, t_pile **pile_b, t_pile *pos_b);
+void				up_pa(t_pile **pile_a, t_pile *pos_b);
+void				up_pb(t_pile **pile_a, t_pile *pos_b);
+int					ft_coups_bas(t_cc *cc);
+void				calcul_prix(t_pile **pile_a, t_pile **pile_b);
+void				calcul_prix2(t_cc *cc, t_pile **pile_a, t_pile **pile_b);
+void				insertion(t_pile **pile_a, t_pile **pile_b, t_pile *pos_b);
+int					minimum_coups(t_pile **pile_b);
 
 #endif

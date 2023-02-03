@@ -68,6 +68,46 @@ void	ft_replace(t_pile **pile_a)
 		down_a(&(*pile_a), min);
 }
 
+void	algo_de2(t_pile **pile_a, t_pile **pile_b)
+{
+	swap(&(*pile_a), &(*pile_b), 'a');
+	free_pile(&(*pile_a));
+	free_pile(&(*pile_b));
+	exit(0);
+}
+
+void	algo_de3(t_pile **pile_a, t_pile **pile_b)
+{
+	if (((*pile_a)->nb > (*pile_a)->next->nb)
+		&& ((*pile_a)->next->nb > (*pile_a)->next->next->nb))
+	{
+		rotate_a(&(*pile_a));
+		swap(&(*pile_a), &(*pile_b), 'a');
+	}
+	if (((*pile_a)->nb > (*pile_a)->next->nb)
+		&& ((*pile_a)->next->nb < (*pile_a)->next->next->nb)
+		&& ((*pile_a)->nb > (*pile_a)->next->next->nb))
+		rotate_a(&(*pile_a));
+	if (((*pile_a)->nb > (*pile_a)->next->nb)
+		&& ((*pile_a)->next->nb < (*pile_a)->next->next->nb)
+		&& ((*pile_a)->nb < (*pile_a)->next->next->nb))
+		swap(&(*pile_a), &(*pile_b), 'a');
+	if (((*pile_a)->nb < (*pile_a)->next->nb)
+		&& ((*pile_a)->next->nb > (*pile_a)->next->next->nb)
+		&& ((*pile_a)->nb > (*pile_a)->next->next->nb))
+		reverse_rotate_a(&(*pile_a));
+	if (((*pile_a)->nb < (*pile_a)->next->nb)
+		&& ((*pile_a)->next->nb > (*pile_a)->next->next->nb)
+		&& ((*pile_a)->nb < (*pile_a)->next->next->nb))
+	{
+		reverse_rotate_a(&(*pile_a));
+		swap(&(*pile_a), &(*pile_b), 'a');
+	}
+	free_pile(&(*pile_a));
+	free_pile(&(*pile_b));
+	exit(0);
+}
+
 int	main(int ac, char **av)
 {
 	t_pile *pile_a;
@@ -79,33 +119,36 @@ int	main(int ac, char **av)
 	pile_a = 0;
 	pile_a = ft_def_pile_a(ac, av);
 
+	if (ft_lst_size(&pile_a) == 2)
+		algo_de2(&pile_a, &pile_b);
+	if (ft_lst_size(&pile_a) == 3)
+		algo_de3(&pile_a, &pile_b);
 	lis(&pile_a, &pile_b);
 	tri(&pile_a, &pile_b);
 	ft_replace(&pile_a);
+	// t_pile *ok;
+	// printf("La taille de la pile A est  : %d\n", ft_lst_size(&pile_a));
+	// ok = pile_a;
+	// while (ok)
+	// {
+	// 	printf("PILE A----->%d\n", ok->nb);
+	// 	//printf("LIS----->%d\n", ok->lis);
+	// 	// printf("Count----->%d\n", ok->count);
+	// 	ok = ok->next;
+	// }
 
-	t_pile *ok;
-	printf("La taille de la pile A est  : %d\n", ft_lst_size(&pile_a));
-	ok = pile_a;
-	while (ok)
-	{
-		printf("PILE A----->%d\n", ok->nb);
-		//printf("LIS----->%d\n", ok->lis);
-		// printf("Count----->%d\n", ok->count);
-		ok = ok->next;
-	}
+	// ok = pile_b;
+	// while (ok)
+	// {
+	// 	printf("PILE B----->%d\n", ok->nb);
+	// 	printf("PILE B-----> DARON *****%d*****\n", ok->daron);
+	// 	//printf("LIS----->%d\n", ok->lis);
+	// 	// printf("Count----->%d\n", ok->count);
+	// 	ok = ok->next;
+	// }
 
-	ok = pile_b;
-	while (ok)
-	{
-		printf("PILE B----->%d\n", ok->nb);
-		printf("PILE B-----> DARON *****%d*****\n", ok->daron);
-		//printf("LIS----->%d\n", ok->lis);
-		// printf("Count----->%d\n", ok->count);
-		ok = ok->next;
-	}
-
-	printf("La taille de la pile A est  : %d\n", ft_lst_size(&pile_a));
-	printf("Le nombre de coups est de : %d\n", nombre);
+	// printf("La taille de la pile A est  : %d\n", ft_lst_size(&pile_a));
+	// printf("Le nombre de coups est de : %d\n", nombre);
 	free_pile(&pile_a);
 	free_pile(&pile_b);
 	return (0);
