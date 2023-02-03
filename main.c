@@ -83,26 +83,26 @@ int	main(int ac, char **av)
 	tri(&pile_a, &pile_b);
 	ft_replace(&pile_a);
 
-	// t_pile *ok;
-	// printf("La taille de la pile A est  : %d\n", ft_lst_size(&pile_a));
-	// ok = pile_a;
-	// while (ok)
-	// {
-	// 	printf("PILE A----->%d\n", ok->nb);
-	// 	//printf("LIS----->%d\n", ok->lis);
-	// 	// printf("Count----->%d\n", ok->count);
-	// 	ok = ok->next;
-	// }
+	t_pile *ok;
+	printf("La taille de la pile A est  : %d\n", ft_lst_size(&pile_a));
+	ok = pile_a;
+	while (ok)
+	{
+		printf("PILE A----->%d\n", ok->nb);
+		//printf("LIS----->%d\n", ok->lis);
+		// printf("Count----->%d\n", ok->count);
+		ok = ok->next;
+	}
 
-	// ok = pile_b;
-	// while (ok)
-	// {
-	// 	printf("PILE B----->%d\n", ok->nb);
-	// 	printf("PILE B-----> DARON *****%d*****\n", ok->daron);
-	// 	//printf("LIS----->%d\n", ok->lis);
-	// 	// printf("Count----->%d\n", ok->count);
-	// 	ok = ok->next;
-	// }
+	ok = pile_b;
+	while (ok)
+	{
+		printf("PILE B----->%d\n", ok->nb);
+		printf("PILE B-----> DARON *****%d*****\n", ok->daron);
+		//printf("LIS----->%d\n", ok->lis);
+		// printf("Count----->%d\n", ok->count);
+		ok = ok->next;
+	}
 
 	printf("La taille de la pile A est  : %d\n", ft_lst_size(&pile_a));
 	printf("Le nombre de coups est de : %d\n", nombre);

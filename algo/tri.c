@@ -108,4 +108,6 @@ void	tri(t_pile **pile_a, t_pile **pile_b)
 		tmp = tmp->next;
 		tmp = (*pile_b);
 	}
+	// init_daron(&(*pile_b));
+	// 	ft_daron(&(*pile_a), &(*pile_b));
 }

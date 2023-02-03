@@ -18,7 +18,7 @@ int	max_pile(t_pile **pile)
 	int		max;
 
 	tmp = (*pile);
-	max = 0;
+	max = -2147483648;
 	while (tmp)
 	{
 		if (tmp->nb > max)
@@ -57,6 +57,8 @@ void	ft_daron(t_pile **pile_a, t_pile **pile_b)
 		{
 			if ((tmp2->daron == tmp2->nb) && (tmp->nb > tmp2->nb))
 				tmp2->daron = tmp->nb;
+			// if ((tmp2->daron == tmp2->nb) && (tmp2->nb > max_pile(&(*pile_a))))
+			// 	tmp2->daron = min_pile(&(*pile_a));
 			if (tmp->nb > tmp2->nb && tmp->nb < tmp2->daron)
 				tmp2->daron = tmp->nb;
 			if (tmp2->nb > max_pile(&(*pile_a)))
