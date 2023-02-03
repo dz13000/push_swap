@@ -7,7 +7,7 @@ void	init_daron(t_pile **pile_b)
 	tmp = (*pile_b);
 	while (tmp)
 	{
-		tmp->daron = 0;
+		tmp->daron = tmp->nb;
 		tmp = tmp->next;
 	}
 }
@@ -55,7 +55,7 @@ void	ft_daron(t_pile **pile_a, t_pile **pile_b)
 		tmp = (*pile_a);
 		while (tmp)
 		{
-			if (tmp2->daron == 0 && tmp->nb > tmp2->nb)
+			if ((tmp2->daron == tmp2->nb) && (tmp->nb > tmp2->nb))
 				tmp2->daron = tmp->nb;
 			if (tmp->nb > tmp2->nb && tmp->nb < tmp2->daron)
 				tmp2->daron = tmp->nb;
