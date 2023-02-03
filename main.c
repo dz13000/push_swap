@@ -76,6 +76,21 @@ void	algo_de2(t_pile **pile_a, t_pile **pile_b)
 	exit(0);
 }
 
+void	algo_de3v2(t_pile **pile_a, t_pile **pile_b)
+{
+	if (((*pile_a)->nb < (*pile_a)->next->nb)
+		&& ((*pile_a)->next->nb > (*pile_a)->next->next->nb)
+		&& ((*pile_a)->nb > (*pile_a)->next->next->nb))
+		reverse_rotate_a(&(*pile_a));
+	if (((*pile_a)->nb < (*pile_a)->next->nb)
+		&& ((*pile_a)->next->nb > (*pile_a)->next->next->nb)
+		&& ((*pile_a)->nb < (*pile_a)->next->next->nb))
+	{
+		reverse_rotate_a(&(*pile_a));
+		swap(&(*pile_a), &(*pile_b), 'a');
+	}
+}
+
 void	algo_de3(t_pile **pile_a, t_pile **pile_b)
 {
 	if (((*pile_a)->nb > (*pile_a)->next->nb)
@@ -92,19 +107,32 @@ void	algo_de3(t_pile **pile_a, t_pile **pile_b)
 		&& ((*pile_a)->next->nb < (*pile_a)->next->next->nb)
 		&& ((*pile_a)->nb < (*pile_a)->next->next->nb))
 		swap(&(*pile_a), &(*pile_b), 'a');
-	if (((*pile_a)->nb < (*pile_a)->next->nb)
-		&& ((*pile_a)->next->nb > (*pile_a)->next->next->nb)
-		&& ((*pile_a)->nb > (*pile_a)->next->next->nb))
-		reverse_rotate_a(&(*pile_a));
-	if (((*pile_a)->nb < (*pile_a)->next->nb)
-		&& ((*pile_a)->next->nb > (*pile_a)->next->next->nb)
-		&& ((*pile_a)->nb < (*pile_a)->next->next->nb))
-	{
-		reverse_rotate_a(&(*pile_a));
-		swap(&(*pile_a), &(*pile_b), 'a');
-	}
-	free_pile(&(*pile_a));
-	free_pile(&(*pile_b));
+	algo_de3v2(&(*pile_a), &(*pile_b));
+	// free_pile(&(*pile_a));
+	// free_pile(&(*pile_b));
+	// exit(0);
+}
+
+void	algo_de5(t_pile **pile_a, t_pile **pile_b)
+{
+	ft_replace(&(*pile_a));
+	push_b(&(*pile_a), &(*pile_b));
+	ft_replace(&(*pile_a));
+	push_b(&(*pile_a), &(*pile_b));
+	algo_de3(&(*pile_a), &(*pile_b));
+	push_a(&(*pile_a), &(*pile_b));
+	push_a(&(*pile_a), &(*pile_b));
+
+	// 	t_pile *ok;
+	// printf("La taille de la pile A est  : %d\n", ft_lst_size(&(*pile_a)));
+	// ok = (*pile_a);
+	// while (ok)
+	// {
+	// 	printf("PILE A----->%d\n", ok->nb);
+	// 	//printf("LIS----->%d\n", ok->lis);
+	// 	// printf("Count----->%d\n", ok->count);
+	// 	ok = ok->next;
+	// }
 	exit(0);
 }
 
@@ -123,6 +151,8 @@ int	main(int ac, char **av)
 		algo_de2(&pile_a, &pile_b);
 	if (ft_lst_size(&pile_a) == 3)
 		algo_de3(&pile_a, &pile_b);
+	if (ft_lst_size(&pile_a) == 5)
+		algo_de5(&pile_a, &pile_b);
 	lis(&pile_a, &pile_b);
 	tri(&pile_a, &pile_b);
 	ft_replace(&pile_a);
