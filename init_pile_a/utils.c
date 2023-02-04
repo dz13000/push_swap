@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/04 04:43:06 by cabouzir          #+#    #+#             */
+/*   Updated: 2023/02/04 04:43:07 by cabouzir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 int	ft_atoi(char *str)
@@ -81,6 +93,8 @@ t_pile	*ft_lst_new(int nb)
 	t_pile	*new;
 
 	new = malloc(sizeof(t_pile));
+	if (!new)
+		exit(1);
 	new->nb = nb;
 	new->next = NULL;
 	return (new);

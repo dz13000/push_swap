@@ -1,6 +1,7 @@
 NAME = push_swap
 
 SRCS = 	main.c \
+		utils.c \
 		parcing/pars.c \
 		parcing/utils.c \
 		parcing/utils2.c \

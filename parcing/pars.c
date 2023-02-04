@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pars.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/04 04:43:39 by cabouzir          #+#    #+#             */
+/*   Updated: 2023/02/04 04:43:40 by cabouzir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 int	verif_arg(char **str)
@@ -11,6 +23,8 @@ int	verif_arg(char **str)
 		j = 0;
 		while (str[i][j])
 		{
+			if (j != 0 && str[i][j] == '-')
+				return (1);
 			if (str[i][j] != ' ' && str[i][j] != '-'
 				&& ft_isdigit(str[i][j]) == 0)
 				return (1);
@@ -92,22 +106,22 @@ int	ft_parcing(int ac, char **av)
 	t_tab	tab;
 
 	if (ac < 2)
-		return (ft_putstr_fd("Error 1\n", 2), 1);
+		return (ft_putstr_fd("Error\n", 2), 1);
 	if (verif_arg(av))
-		return (ft_putstr_fd("Error 2\n", 2), 1);
+		return (ft_putstr_fd("Error\n", 2), 1);
 	if (verif_int(av, ac, &tab))
-		return (ft_putstr_fd("Error 3\n", 2), free(tab.tab), 1);
+		return (ft_putstr_fd("Error\n", 2), free(tab.tab), 1);
 	if (check_doubles(&tab, ac))
-		return (ft_putstr_fd("Error 4\n", 2), free(tab.tab), 1);
+		return (ft_putstr_fd("Error\n", 2), free(tab.tab), 1);
 	if (verif_tri(&tab, ac) == 1)
 	{
 		free(tab.tab);
-		exit(1);
+		exit(0);
 	}
 	if (ac == 2)
 	{
 		if (verif_2args(av, &tab))
-			return (ft_putstr_fd("Error 6\n", 2), free(tab.tab), 1);
+			return (ft_putstr_fd("Error\n", 2), free(tab.tab), 1);
 	}
 	return (free(tab.tab), 0);
 }

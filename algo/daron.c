@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   daron.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/04 04:42:06 by cabouzir          #+#    #+#             */
+/*   Updated: 2023/02/04 04:42:07 by cabouzir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	init_daron(t_pile **pile_b)
@@ -57,8 +69,6 @@ void	ft_daron(t_pile **pile_a, t_pile **pile_b)
 		{
 			if ((tmp2->daron == tmp2->nb) && (tmp->nb > tmp2->nb))
 				tmp2->daron = tmp->nb;
-			// if ((tmp2->daron == tmp2->nb) && (tmp2->nb > max_pile(&(*pile_a))))
-			// 	tmp2->daron = min_pile(&(*pile_a));
 			if (tmp->nb > tmp2->nb && tmp->nb < tmp2->daron)
 				tmp2->daron = tmp->nb;
 			if (tmp2->nb > max_pile(&(*pile_a)))

@@ -1,11 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/04 04:44:09 by cabouzir          #+#    #+#             */
+/*   Updated: 2023/02/04 04:44:10 by cabouzir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-
-extern int			nombre;
 
 //Parcing
 typedef struct s_tab
@@ -155,5 +165,14 @@ void				calcul_prix(t_pile **pile_a, t_pile **pile_b);
 void				calcul_prix2(t_cc *cc, t_pile **pile_a, t_pile **pile_b);
 void				insertion(t_pile **pile_a, t_pile **pile_b, t_pile *pos_b);
 int					minimum_coups(t_pile **pile_b);
+
+// Algo de 2,3 et 5
+
+void				algo_de2(t_pile **pile_a, t_pile **pile_b);
+void				algo_de3v2(t_pile **pile_a, t_pile **pile_b);
+void				algo_de3(t_pile **pile_a, t_pile **pile_b);
+void				algo_de3_5v2(t_pile **pile_a, t_pile **pile_b);
+void				algo_de3_5(t_pile **pile_a, t_pile **pile_b);
+void				algo_de5(t_pile **pile_a, t_pile **pile_b);
 
 #endif

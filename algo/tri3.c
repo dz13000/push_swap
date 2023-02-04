@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tri3.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/04 04:42:30 by cabouzir          #+#    #+#             */
+/*   Updated: 2023/02/04 04:42:31 by cabouzir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	up2(t_pile **pile_a, t_pile **pile_b, t_pile *pos_b)
@@ -7,7 +19,6 @@ void	up2(t_pile **pile_a, t_pile **pile_b, t_pile *pos_b)
 		rr(&(*pile_a), &(*pile_b));
 		pos_b->up_a--;
 		pos_b->up_b--;
-		nombre++;
 	}
 }
 
@@ -18,7 +29,6 @@ void	down2(t_pile **pile_a, t_pile **pile_b, t_pile *pos_b)
 		rrr(&(*pile_a), &(*pile_b));
 		pos_b->down_a--;
 		pos_b->down_b--;
-		nombre++;
 	}
 }
 
@@ -28,7 +38,6 @@ void	up_pa(t_pile **pile_a, t_pile *pos_b)
 	{
 		rotate_a(&(*pile_a));
 		pos_b->up_a--;
-		nombre++;
 	}
 }
 
@@ -38,7 +47,6 @@ void	up_pb(t_pile **pile_b, t_pile *pos_b)
 	{
 		rotate_b(&(*pile_b));
 		pos_b->up_b--;
-		nombre++;
 	}
 }
 
@@ -52,20 +60,16 @@ void	insertion(t_pile **pile_a, t_pile **pile_b, t_pile *pos_b)
 	{
 		rotate_b(&(*pile_b));
 		pos_b->up_b--;
-		nombre++;
 	}
 	while (pos_b->down_a > 0)
 	{
 		reverse_rotate_a(&(*pile_a));
 		pos_b->down_a--;
-		nombre++;
 	}
 	while (pos_b->down_b > 0)
 	{
 		reverse_rotate_b(&(*pile_b));
 		pos_b->down_b--;
-		nombre++;
 	}
 	push_a(&(*pile_a), &(*pile_b));
-	nombre++;
 }

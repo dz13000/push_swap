@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   move3.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/04 04:43:22 by cabouzir          #+#    #+#             */
+/*   Updated: 2023/02/04 04:43:23 by cabouzir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	rotate_1(t_pile **pile_b)
@@ -64,9 +76,9 @@ void	reverse_rotate_1(t_pile **pile_a)
 
 void	reverse_rotate_2(t_pile **pile_b)
 {
-	t_pile	*tmp;
-	t_pile	*tmp2;
-	t_pile	*tmp3;
+	t_pile *tmp;
+	t_pile *tmp2;
+	t_pile *tmp3;
 
 	tmp = (*pile_b);
 	tmp2 = (*pile_b);

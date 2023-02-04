@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tri5.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/04 04:42:41 by cabouzir          #+#    #+#             */
+/*   Updated: 2023/02/04 04:42:42 by cabouzir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	utils_coups2(t_cp *c2, t_pile *pos_a, t_pile *pos_b)
@@ -23,7 +35,7 @@ void	utils_coups2(t_cp *c2, t_pile *pos_a, t_pile *pos_b)
 int	calcul_coups2(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a,
 		t_pile *pos_b)
 {
-	t_cp c2;
+	t_cp	c2;
 
 	asign_cp(&c2, &(*pile_a), &(*pile_b));
 	utils_coups2(&c2, &(*pos_a), &(*pos_b));

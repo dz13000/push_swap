@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lis.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/04 04:42:09 by cabouzir          #+#    #+#             */
+/*   Updated: 2023/02/04 04:42:10 by cabouzir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	pre_tab(t_pile **pile_a, t_lis *lis, int lis_max)
@@ -59,13 +71,11 @@ void	pre_tri(t_pile **pile_a, t_pile **pile_b)
 		{
 			push_b(&(*pile_a), &(*pile_b));
 			tmp = (*pile_a);
-			nombre++;
 		}
 		if (tmp->count != 0)
 		{
 			rotate_a(&(*pile_a));
 			tmp = (*pile_a);
-			nombre++;
 		}
 		if (verif_count(&*pile_a) == 0)
 			break ;
@@ -74,8 +84,8 @@ void	pre_tri(t_pile **pile_a, t_pile **pile_b)
 
 void	lis(t_pile **pile_a, t_pile **pile_b)
 {
-	t_lis	lis;
-	int		lis_max;
+	t_lis lis;
+	int lis_max;
 
 	lis_max = 0;
 	init_lis(&(*pile_a));
@@ -84,6 +94,12 @@ void	lis(t_pile **pile_a, t_pile **pile_b)
 	lis_max = max_lis(&(*pile_a));
 	value_lis(*(&pile_a), lis_max);
 	lis.tab = malloc(sizeof(int) * lis_max);
+	if (!lis.tab)
+	{
+		free_pile(&(*pile_a));
+		free_pile(&(*pile_b));
+		return ;
+	}
 	pre_tab(&(*pile_a), &lis, lis_max);
 	pre_tri(&(*pile_a), &(*pile_b));
 	free(lis.tab);

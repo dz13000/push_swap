@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tri4.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/04 04:42:34 by cabouzir          #+#    #+#             */
+/*   Updated: 2023/02/04 04:42:35 by cabouzir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 int	calcul_coups3(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a,
 		t_pile *pos_b)
 {
-	t_cp c3;
+	t_cp	c3;
 
 	asign_cp(&c3, &(*pile_a), &(*pile_b));
 	while (c3.tmp)
@@ -31,7 +43,7 @@ int	calcul_coups3(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a,
 int	calcul_coups4(t_pile **pile_a, t_pile **pile_b, t_pile *pos_a,
 		t_pile *pos_b)
 {
-	t_cp c4;
+	t_cp	c4;
 
 	asign_cp(&c4, &(*pile_a), &(*pile_b));
 	while (c4.tmp)

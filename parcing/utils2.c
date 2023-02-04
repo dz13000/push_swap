@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils2.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/04 04:43:48 by cabouzir          #+#    #+#             */
+/*   Updated: 2023/02/04 04:43:49 by cabouzir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 int	count_tab2(char **tab)
@@ -18,7 +30,6 @@ int	check_doubles2(int *tab, int ac)
 
 	i = 0;
 	tmp = 0;
-	//printf("%d\n", ac - 1);
 	while (i < ac)
 	{
 		tmp = tab[i];
@@ -73,7 +84,6 @@ int	verif_int2(char **av)
 	}
 	if (check_doubles2(tab, count) || verif_tri2(tab, count))
 		return (free(tab), 1);
-	//free(tab);
 	return (free(tab), 0);
 }
 
@@ -81,8 +91,6 @@ int	verif_2args(char **av, t_tab *tab2)
 {
 	char **tab;
 
-	// int		i;
-	// i = 0;
 	tab = ft_split(av[1], ' ');
 	if (!tab)
 		return (1);
@@ -92,6 +100,5 @@ int	verif_2args(char **av, t_tab *tab2)
 		return (ft_free2(tab), 1);
 	if (verif_int2(tab))
 		return (ft_free2(tab), 1);
-	// printf("tema c passe\n");
 	return (ft_free2(tab), 0);
 }

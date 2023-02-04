@@ -1,6 +1,16 @@
-#include "../push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tri.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/04 04:42:20 by cabouzir          #+#    #+#             */
+/*   Updated: 2023/02/04 04:42:21 by cabouzir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int		nombre = 0;
+#include "../push_swap.h"
 
 void	utils_cc3(t_cp *cc3, t_pile **pos_a, t_pile **pos_b)
 {
@@ -24,7 +34,7 @@ void	utils_cc3(t_cp *cc3, t_pile **pos_a, t_pile **pos_b)
 void	asign_cc3(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a,
 		t_pile **pos_b)
 {
-	t_cp cc3;
+	t_cp	cc3;
 
 	asign_cp(&cc3, &(*pile_a), &(*pile_b));
 	utils_cc3(&cc3, &(*pos_a), &(*pos_b));
@@ -64,7 +74,7 @@ void	utils_cc4(t_cp *cc4, t_pile **pos_a, t_pile **pos_b)
 void	asign_cc4(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a,
 		t_pile **pos_b)
 {
-	t_cp cc4;
+	t_cp	cc4;
 
 	asign_cp(&cc4, &(*pile_a), &(*pile_b));
 	utils_cc4(&cc4, &(*pos_a), &(*pos_b));
@@ -108,6 +118,4 @@ void	tri(t_pile **pile_a, t_pile **pile_b)
 		tmp = tmp->next;
 		tmp = (*pile_b);
 	}
-	// init_daron(&(*pile_b));
-	// 	ft_daron(&(*pile_a), &(*pile_b));
 }
