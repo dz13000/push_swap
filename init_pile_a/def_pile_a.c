@@ -6,7 +6,7 @@
 /*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 04:42:57 by cabouzir          #+#    #+#             */
-/*   Updated: 2023/02/04 06:56:15 by cabouzir         ###   ########.fr       */
+/*   Updated: 2023/02/04 12:10:34 by cabouzir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ void	def2(char **av, t_pile **res)
 	while (j < size - 1)
 	{
 		new = ft_lst_new(tab[j]);
+		if (!new)
+		{
+			free_pile(&(*res));
+			exit(1);
+		}
 		ft_lstadd_back(*res, new);
 		j++;
 	}
@@ -48,6 +53,11 @@ void	def(char **av, t_pile **res)
 	while (j < size)
 	{
 		new = ft_lst_new(tab[j]);
+		if (!new)
+		{
+			free_pile(&(*res));
+			exit(1);
+		}
 		ft_lstadd_back(*res, new);
 		j++;
 	}

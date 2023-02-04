@@ -6,7 +6,7 @@
 /*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 04:44:09 by cabouzir          #+#    #+#             */
-/*   Updated: 2023/02/04 06:52:23 by cabouzir         ###   ########.fr       */
+/*   Updated: 2023/02/04 11:35:57 by cabouzir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,5 +173,6 @@ void				algo_de3(t_pile **pile_a, t_pile **pile_b);
 void				algo_de3_5v2(t_pile **pile_a, t_pile **pile_b);
 void				algo_de3_5(t_pile **pile_a, t_pile **pile_b);
 void				algo_de5(t_pile **pile_a, t_pile **pile_b);
+void				ft_replace(t_pile **pile_a);
 
 #endif

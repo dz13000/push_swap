@@ -6,7 +6,7 @@
 /*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 04:43:39 by cabouzir          #+#    #+#             */
-/*   Updated: 2023/02/04 06:38:39 by cabouzir         ###   ########.fr       */
+/*   Updated: 2023/02/04 11:53:18 by cabouzir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	verif_arg(char **str)
 		j = 0;
 		while (str[i][j])
 		{
-			if (j != 0 && str[i][j] == '-')
+			if ((j != 0 && str[i][j] == '-') || (str[i][j] == ' '))
 				return (1);
 			if (str[i][j] != ' ' && str[i][j] != '-'
 				&& ft_isdigit(str[i][j]) == 0)
@@ -33,6 +33,8 @@ int	verif_arg(char **str)
 				return (1);
 			j++;
 		}
+		if (j == 0)
+			exit(49);
 		i++;
 	}
 	return (0);
