@@ -6,7 +6,7 @@
 /*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 04:43:06 by cabouzir          #+#    #+#             */
-/*   Updated: 2023/02/04 04:43:07 by cabouzir         ###   ########.fr       */
+/*   Updated: 2023/02/04 06:29:42 by cabouzir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ t_pile	*ft_lst_new(int nb)
 
 void	ft_lstadd_back(t_pile *lst, t_pile *new)
 {
-	t_pile *tmp;
+	t_pile	*tmp;
 
 	tmp = lst;
 	while (tmp->next != NULL)

@@ -6,7 +6,7 @@
 /*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 04:43:35 by cabouzir          #+#    #+#             */
-/*   Updated: 2023/02/04 04:43:36 by cabouzir         ###   ########.fr       */
+/*   Updated: 2023/02/04 06:04:58 by cabouzir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,9 @@ char	**ft_decoupe(char **tab, char *str, int k, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	int k;
-	char **tab;
-	char *str;
+	int		k;
+	char	**tab;
+	char	*str;
 
 	k = 0;
 	if (s == NULL)

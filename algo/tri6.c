@@ -6,7 +6,7 @@
 /*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 04:42:45 by cabouzir          #+#    #+#             */
-/*   Updated: 2023/02/04 04:42:46 by cabouzir         ###   ########.fr       */
+/*   Updated: 2023/02/04 04:53:59 by cabouzir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	utils_cc2(t_cp *cc2, t_pile **pos_a, t_pile **pos_b, t_pile **pile_a)
 void	asign_cc2(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a,
 		t_pile **pos_b)
 {
-	t_cp cc2;
+	t_cp	cc2;
 
 	asign_cp(&cc2, &(*pile_a), &(*pile_b));
 	utils_cc2(&cc2, &(*pos_a), &(*pos_b), &(*pile_a));

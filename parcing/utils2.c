@@ -6,7 +6,7 @@
 /*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 04:43:48 by cabouzir          #+#    #+#             */
-/*   Updated: 2023/02/04 04:43:49 by cabouzir         ###   ########.fr       */
+/*   Updated: 2023/02/04 06:39:28 by cabouzir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	check_doubles2(int *tab, int ac)
 	while (i < ac)
 	{
 		tmp = tab[i];
-		printf(">%d\n", tab[i]);
 		j = i + 1;
 		while (j < ac)
 		{
@@ -89,7 +88,7 @@ int	verif_int2(char **av)
 
 int	verif_2args(char **av, t_tab *tab2)
 {
-	char **tab;
+	char	**tab;
 
 	tab = ft_split(av[1], ' ');
 	if (!tab)

@@ -6,7 +6,7 @@
 /*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 04:42:09 by cabouzir          #+#    #+#             */
-/*   Updated: 2023/02/04 04:42:10 by cabouzir         ###   ########.fr       */
+/*   Updated: 2023/02/04 05:57:50 by cabouzir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,8 @@ void	pre_tri(t_pile **pile_a, t_pile **pile_b)
 
 void	lis(t_pile **pile_a, t_pile **pile_b)
 {
-	t_lis lis;
-	int lis_max;
+	t_lis	lis;
+	int		lis_max;
 
 	lis_max = 0;
 	init_lis(&(*pile_a));

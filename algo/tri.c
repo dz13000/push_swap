@@ -6,7 +6,7 @@
 /*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 04:42:20 by cabouzir          #+#    #+#             */
-/*   Updated: 2023/02/04 04:42:21 by cabouzir         ###   ########.fr       */
+/*   Updated: 2023/02/04 04:56:49 by cabouzir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	utils_cc3(t_cp *cc3, t_pile **pos_a, t_pile **pos_b)
 	}
 	cc3->j--;
 }
+
 void	asign_cc3(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a,
 		t_pile **pos_b)
 {
@@ -93,9 +94,9 @@ void	asign_cc4(t_pile **pile_a, t_pile **pile_b, t_pile **pos_a,
 
 void	tri(t_pile **pile_a, t_pile **pile_b)
 {
-	t_pile *tmp;
-	t_pile *tmp2;
-	int min;
+	t_pile	*tmp;
+	t_pile	*tmp2;
+	int		min;
 
 	tmp = (*pile_b);
 	min = 0;

@@ -6,14 +6,13 @@
 /*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 04:44:09 by cabouzir          #+#    #+#             */
-/*   Updated: 2023/02/04 04:44:10 by cabouzir         ###   ########.fr       */
+/*   Updated: 2023/02/04 06:52:23 by cabouzir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 

@@ -6,7 +6,7 @@
 /*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 04:42:13 by cabouzir          #+#    #+#             */
-/*   Updated: 2023/02/04 04:42:14 by cabouzir         ###   ########.fr       */
+/*   Updated: 2023/02/04 04:52:40 by cabouzir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,9 @@ int	verif_lis(t_pile **pile_a, int i)
 
 void	value_lis(t_pile **pile_a, int lis_max)
 {
-	int i;
-	t_pile *tmp;
-	t_pile *tmp2;
+	int		i;
+	t_pile	*tmp;
+	t_pile	*tmp2;
 
 	i = lis_max;
 	tmp = (*pile_a);

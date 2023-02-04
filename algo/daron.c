@@ -6,7 +6,7 @@
 /*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 04:42:06 by cabouzir          #+#    #+#             */
-/*   Updated: 2023/02/04 04:42:07 by cabouzir         ###   ########.fr       */
+/*   Updated: 2023/02/04 05:56:53 by cabouzir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ int	min_pile(t_pile **pile)
 
 void	ft_daron(t_pile **pile_a, t_pile **pile_b)
 {
-	t_pile *tmp;
-	t_pile *tmp2;
+	t_pile	*tmp;
+	t_pile	*tmp2;
 
 	tmp2 = (*pile_b);
 	while (tmp2)

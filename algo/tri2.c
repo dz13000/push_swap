@@ -6,7 +6,7 @@
 /*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 04:42:26 by cabouzir          #+#    #+#             */
-/*   Updated: 2023/02/04 04:42:27 by cabouzir         ###   ########.fr       */
+/*   Updated: 2023/02/04 05:55:52 by cabouzir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ void	calcul_prix(t_pile **pile_a, t_pile **pile_b)
 
 int	minimum_coups(t_pile **pile_b)
 {
-	int min;
-	t_pile *tmp;
+	int		min;
+	t_pile	*tmp;
 
 	tmp = (*pile_b);
 	min = 0;
