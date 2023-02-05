@@ -6,7 +6,7 @@
 /*   By: cabouzir <cabouzir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 04:44:09 by cabouzir          #+#    #+#             */
-/*   Updated: 2023/02/04 11:35:57 by cabouzir         ###   ########.fr       */
+/*   Updated: 2023/02/05 05:47:55 by cabouzir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_tab
 }					t_tab;
 
 int					verif_arg(char **str);
-int	verif_arg2(char **str);
+int					verif_arg2(char **str);
 int					ft_isdigit(char c);
 int					check_space(char **str);
 void				ft_putstr_fd(char *s, int fd);
