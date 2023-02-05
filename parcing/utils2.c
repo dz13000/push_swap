@@ -95,7 +95,7 @@ int	verif_2args(char **av, t_tab *tab2)
 		return (1);
 	if (count_tab(tab, &*tab2))
 		return (ft_free2(tab), 1);
-	if (verif_arg(av))
+	if (verif_arg2(av))
 		return (ft_free2(tab), 1);
 	if (verif_int2(tab))
 		return (ft_free2(tab), 1);

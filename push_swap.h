@@ -23,6 +23,7 @@ typedef struct s_tab
 }					t_tab;
 
 int					verif_arg(char **str);
+int	verif_arg2(char **str);
 int					ft_isdigit(char c);
 int					check_space(char **str);
 void				ft_putstr_fd(char *s, int fd);

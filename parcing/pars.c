@@ -107,7 +107,7 @@ int	ft_parcing(int ac, char **av)
 
 	if (ac < 2)
 		return (ft_putstr_fd("Error\n", 2), 1);
-	if (verif_arg(av))
+	if (verif_arg(av) && ac != 2)
 		return (ft_putstr_fd("Error\n", 2), 1);
 	if (verif_int(av, ac, &tab))
 		return (ft_putstr_fd("Error\n", 2), free(tab.tab), 1);
